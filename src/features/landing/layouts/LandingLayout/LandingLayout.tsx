@@ -8,9 +8,9 @@ type LandingLayoutProps = PropsWithChildren;
 const LandingLayout = ({ children }: LandingLayoutProps) => {
   return (
     <div className="grid min-h-screen w-full">
-      <div className="flex flex-col">
+      <div className="mx-auto flex max-w-7xl flex-col space-y-16 p-6 md:px-8">
         <AppBar menuItems={menuItems} />
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">{children}</main>
+        <main className="flex flex-1 flex-col">{children}</main>
       </div>
     </div>
   );

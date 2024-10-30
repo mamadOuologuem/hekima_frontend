@@ -1,4 +1,5 @@
 import Logo from '@/components/atoms/Logo';
+import { Button } from '@/components/ui/button';
 import AppMenu from '@/features/landing/components/AppMenu';
 import type { MenuItem } from '@/features/landing/types';
 import Link from 'next/link';
@@ -20,12 +21,14 @@ const AppBar = ({ menuItems }: AppBarProps) => {
           <AppMenu menuItems={menuItems} />
         </div>
 
-        <div className="hidden md:flex md:gap-x-12">
+        <div className="hidden items-center md:flex md:gap-x-12">
           {menuItems.map((item) => (
             <Link key={item.name} href={item.href} className="text-sm/6 text-gray-900">
               {item.name}
             </Link>
           ))}
+
+          <Button variant="outline">Request a quote</Button>
         </div>
       </nav>
     </header>
