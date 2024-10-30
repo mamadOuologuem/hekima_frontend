@@ -1,5 +1,3 @@
-'use client';
-
 import Logo from '@/components/atoms/Logo';
 import AppMenu from '@/features/landing/components/AppMenu';
 import type { MenuItem } from '@/features/landing/types';
@@ -12,7 +10,7 @@ interface AppBarProps {
 const AppBar = ({ menuItems }: AppBarProps) => {
   return (
     <header className="bg-white">
-      <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 md:px-8">
+      <nav aria-label="Global" className="flex items-center justify-between">
         <Link href="#" className="-m-1.5 p-1.5">
           <span className="sr-only">Hekima</span>
           <Logo />
