@@ -2,6 +2,7 @@ import Hero from '@/features/landing/components/Hero';
 import PartnersSection from '@/features/landing/components/PartnersSection';
 import ServiceListSection from '@/features/landing/components/ServiceListSection';
 import ProposalSection from '@/features/landing/components/ProposalSection';
+import CaseStudiesSection from '@/features/landing/components/CaseStudiesSection';
 
 const LandingPage = () => {
   return (
@@ -10,6 +11,7 @@ const LandingPage = () => {
       <PartnersSection />
       <ServiceListSection />
       <ProposalSection />
+      <CaseStudiesSection />
     </div>
   );
 };
