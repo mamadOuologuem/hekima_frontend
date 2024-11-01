@@ -13,7 +13,8 @@ const eslintConfig = [
   {
     files: shadcnFiles,
     rules: {
-      'tailwindcss/enforces-shorthand': 'off'
+      'tailwindcss/enforces-shorthand': 'off',
+      '@typescript-eslint/no-empty-object-type': 'off'
     }
   },
   { rules: { quotes: ['error', 'single'] } }
