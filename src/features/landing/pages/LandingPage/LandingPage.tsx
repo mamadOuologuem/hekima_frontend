@@ -4,6 +4,7 @@ import ServiceListSection from '@/features/landing/components/ServiceListSection
 import ProposalSection from '@/features/landing/components/ProposalSection';
 import CaseStudiesSection from '@/features/landing/components/CaseStudiesSection';
 import WorkProcessSection from '@/features/landing/components/WorkProcessSection';
+import TestimonialsSection from '@/features/landing/components/TestimonialsSection';
 
 const LandingPage = () => {
   return (
@@ -14,6 +15,7 @@ const LandingPage = () => {
       <ProposalSection />
       <CaseStudiesSection />
       <WorkProcessSection />
+      <TestimonialsSection />
     </div>
   );
 };
