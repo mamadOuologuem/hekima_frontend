@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss';
+import plugin from 'tailwindcss/plugin';
 import tailwindAnimatePlugin from 'tailwindcss-animate';
+// import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette';
 
 const config: Config = {
   darkMode: ['class'],
@@ -55,7 +57,40 @@ const config: Config = {
       }
     }
   },
-  plugins: [tailwindAnimatePlugin]
+  plugins: [
+    tailwindAnimatePlugin,
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'highlighted-text': (value) => {
+            return {
+              display: 'inline',
+              border: `1px solid ${value}`,
+              borderRadius: '0.5rem',
+              backgroundColor: value,
+              boxShadow: `0.5rem 0 0 ${value},-0.5rem 0 0 ${value}`,
+              boxDecorationBreak: 'clone',
+              transform: 'translateX(0.25em)'
+            };
+          }
+        },
+        { values: flattenColorPalette(theme('colors')) }
+      );
+    })
+  ]
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const flattenColorPalette = (colors: Record<string, any>): Record<string, string> =>
+  Object.assign(
+    {},
+    ...Object.entries(colors ?? {}).flatMap(([color, values]) =>
+      typeof values == 'object'
+        ? Object.entries(flattenColorPalette(values)).map(([number, hex]) => ({
+            [color + (number === 'DEFAULT' ? '' : `-${number}`)]: hex
+          }))
+        : [{ [`${color}`]: values }]
+    )
+  );
 
 export default config;
