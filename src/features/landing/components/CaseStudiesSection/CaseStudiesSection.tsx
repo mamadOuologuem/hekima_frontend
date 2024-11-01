@@ -37,7 +37,7 @@ const CaseStudiesSection = () => {
         }
       />
 
-      <div className="flex rounded-3xl bg-black p-12">
+      <div className="flex rounded-3xl bg-tertiary p-12">
         {caseStudies.map(({ title, href }, index) => (
           <Fragment key={title}>
             {index !== 0 && <div className="bottom-2 mx-16 h-full border" />}

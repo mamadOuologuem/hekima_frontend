@@ -10,6 +10,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
 
 const FormSchema = z.object({
   name: z.string().min(1),
@@ -18,10 +19,21 @@ const FormSchema = z.object({
 });
 
 const ContactUsSection = () => {
-  const form = useForm<z.infer<typeof FormSchema>>({ resolver: zodResolver(FormSchema), defaultValues: {} });
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: { name: '', email: '', message: '' }
+  });
+  const { toast } = useToast();
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
-    await sendContactEmail(data.name, data.email, data.message);
+    await sendContactEmail(data.name, data.email, data.message)
+      .then(() => {
+        form.reset();
+        toast({ title: 'Message Sent!', description: 'We will get back to you shortly' });
+      })
+      .catch(() => {
+        toast({ title: 'Failed to send message', description: 'Please try again later', variant: 'destructive' });
+      });
   };
 
   return (

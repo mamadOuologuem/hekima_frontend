@@ -18,6 +18,8 @@ body {
     --primary-foreground: 0 0% 98%;
     --secondary: 87 100% 70%;
     --secondary-foreground: 240 5.9% 10%;
+    --tertiary: 234, 17%, 12%;
+    --tertiary-foreground: 240 5.9% 10%;
     --muted: 0 0% 95%;
     --muted-foreground: 240 5.9% 10%;
     --accent: 240 4.8% 95.9%;
@@ -80,5 +82,8 @@ body {
   }
   h3 {
     @apply text-3xl;
+  }
+  h4 {
+    @apply text-xl;
   }
 }

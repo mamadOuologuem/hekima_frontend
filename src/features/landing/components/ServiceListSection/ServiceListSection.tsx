@@ -39,10 +39,10 @@ const ServiceListSection = () => {
             className={cn(
               'relative flex h-96 lg:h-80 gap-x-10 rounded-3xl border border-muted-foreground bg-muted p-12',
               colorScheme === 'secondary' && 'bg-secondary',
-              colorScheme === 'black' && 'bg-black'
+              colorScheme === 'black' && 'bg-tertiary'
             )}
           >
-            <div className="absolute left-0 top-1.5 -z-10 size-full rounded-3xl bg-black" />
+            <div className="absolute left-0 top-1.5 -z-10 size-full rounded-3xl bg-tertiary" />
             <div className="flex flex-1 flex-col justify-between">
               <div>
                 <h3
@@ -55,7 +55,7 @@ const ServiceListSection = () => {
                 <Image src={image} alt={title} width={130} height={130} />
               </div>
               <Link href={href} className={cn('flex items-center gap-x-4', colorScheme === 'black' && 'text-white')}>
-                <div className={cn('w-fit rounded-full bg-black p-2', colorScheme === 'black' && 'bg-white')}>
+                <div className={cn('w-fit rounded-full bg-tertiary p-2', colorScheme === 'black' && 'bg-white')}>
                   <ArrowTopRightIcon
                     width={25}
                     height={25}

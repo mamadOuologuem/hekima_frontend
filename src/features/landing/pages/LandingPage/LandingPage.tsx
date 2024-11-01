@@ -6,6 +6,7 @@ import CaseStudiesSection from '@/features/landing/components/CaseStudiesSection
 import WorkProcessSection from '@/features/landing/components/WorkProcessSection';
 import TestimonialsSection from '@/features/landing/components/TestimonialsSection';
 import ContactUsSection from '@/features/landing/components/ContactUsSection';
+import Footer from '@/features/landing/components/Footer';
 
 const LandingPage = () => {
   return (
@@ -18,6 +19,7 @@ const LandingPage = () => {
       <WorkProcessSection />
       <TestimonialsSection />
       <ContactUsSection />
+      <Footer />
     </div>
   );
 };
