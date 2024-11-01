@@ -1,6 +1,7 @@
 import Hero from '@/features/landing/components/Hero';
 import PartnersSection from '@/features/landing/components/PartnersSection';
 import ServiceListSection from '@/features/landing/components/ServiceListSection';
+import ProposalSection from '@/features/landing/components/ProposalSection';
 
 const LandingPage = () => {
   return (
@@ -8,6 +9,7 @@ const LandingPage = () => {
       <Hero />
       <PartnersSection />
       <ServiceListSection />
+      <ProposalSection />
     </div>
   );
 };
