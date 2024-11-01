@@ -37,12 +37,12 @@ const ServiceListSection = () => {
           <div
             key={title}
             className={cn(
-              'relative flex h-96 lg:h-80 gap-x-10 rounded-3xl border border-muted-foreground bg-muted p-12',
+              'group relative flex h-96 lg:h-80 gap-x-10 rounded-3xl border border-muted-foreground bg-muted p-12',
               colorScheme === 'secondary' && 'bg-secondary',
               colorScheme === 'black' && 'bg-tertiary'
             )}
           >
-            <div className="absolute left-0 top-1.5 -z-10 size-full rounded-3xl bg-tertiary" />
+            <div className="absolute left-0 top-1.5 -z-10 size-full rounded-3xl bg-tertiary transition duration-300 group-hover:translate-x-2 group-hover:translate-y-1" />
             <div className="flex flex-1 flex-col justify-between">
               <div>
                 <h3
