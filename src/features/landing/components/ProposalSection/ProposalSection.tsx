@@ -11,7 +11,7 @@ const ProposalSection = () => {
         </p>
         <Button size="lg">Get your free proposal</Button>
       </div>
-      <div className="-my-32 mx-10 w-80">
+      <div className="-my-32 mx-10 hidden w-80 md:block">
         <Illustration />
       </div>
     </section>

@@ -73,7 +73,10 @@ const TestimonialsSection = () => {
       <div className="flex flex-col items-center gap-y-28 overflow-hidden rounded-3xl bg-tertiary pb-16 pt-20">
         <div className="flex items-stretch justify-center gap-x-16 text-white">
           {visibleTestimonials.map(({ author, position, testimonial }, index) => (
-            <div key={author} className={cn('hidden lg:block w-[36rem] shrink-0 space-y-3', index === 1 && 'block')}>
+            <div
+              key={author}
+              className={cn('hidden lg:block w-5/6 md:w-[36rem] shrink-0 space-y-3', index === 1 && 'block')}
+            >
               <div className="relative mb-10 h-60 rounded-3xl border border-secondary">
                 <div className="relative z-10 flex h-full rounded-3xl bg-tertiary p-10">
                   <p className="my-auto line-clamp-6">&ldquo;{testimonial}&rdquo;</p>
@@ -81,14 +84,14 @@ const TestimonialsSection = () => {
                 <div className="absolute -bottom-5 left-10 size-10 rotate-45 border border-secondary bg-tertiary"></div>
               </div>
 
-              <div className="ml-14 flex flex-col">
+              <div className="ml-4 flex flex-col md:ml-14">
                 <p className="font-semibold text-secondary">{author}</p>
                 <p>{position}</p>
               </div>
             </div>
           ))}
         </div>
-        <div className="flex w-[36rem] items-center justify-between">
+        <div className="flex w-5/6 items-center justify-between md:w-[36rem]">
           <button onClick={handlePrevious}>
             <ArrowLeftIcon className="size-8 text-muted" />
           </button>

@@ -65,13 +65,13 @@ const WorkProcessSection = () => {
             >
               <div className="absolute left-0 top-1.5 -z-10 size-full rounded-3xl bg-black" />
               <div className="flex justify-between">
-                <div className="flex items-center gap-x-4">
+                <div className="flex flex-col gap-x-4 md:flex-row md:items-center">
                   <p className="text-6xl">
                     {(index + 1).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })}
                   </p>
                   <h3>{title}</h3>
                 </div>
-                <div className={cn('size-fit rounded-full bg-muted border border-black p-2')}>
+                <div className="hidden size-fit rounded-full border border-black bg-muted p-2 md:block">
                   {openedStepIndex === index ? (
                     <MinusIcon width={25} height={25} />
                   ) : (

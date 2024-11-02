@@ -19,7 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={spaceGrotesk.className}>
-        {children} <Toaster />
+        {children}
+        <Toaster />
       </body>
     </html>
   );

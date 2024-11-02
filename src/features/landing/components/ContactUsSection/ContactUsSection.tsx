@@ -49,7 +49,7 @@ const ContactUsSection = () => {
         }
       />
 
-      <div className="flex justify-between overflow-hidden rounded-3xl bg-muted p-16">
+      <div className="flex justify-between overflow-hidden rounded-3xl bg-muted p-8 md:p-16">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 md:w-2/3">
             <FormField

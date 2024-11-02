@@ -40,9 +40,9 @@ const Footer = () => {
 
   return (
     <footer className="flex flex-col gap-16 rounded-t-3xl border border-tertiary bg-tertiary p-10 text-white">
-      <div className="flex w-full justify-between">
+      <div className="flex w-full flex-col justify-between gap-5 md:flex-row">
         <Logo />
-        <div className="space-x-5">
+        <div className="flex flex-col gap-5 md:flex-row">
           {menuItems.map((item) => (
             <Link key={item.name} href={item.href} className="underline">
               {item.name}
@@ -63,7 +63,7 @@ const Footer = () => {
             Moonstone City, Stardust State 12345
           </p>
         </div>
-        <div className="h-fit rounded-lg bg-[#292A32] px-14 py-10">
+        <div className="h-fit rounded-lg bg-[#292A32] px-5 py-8 md:px-14 md:py-10">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
