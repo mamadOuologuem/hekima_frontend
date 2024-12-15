@@ -1,26 +1,40 @@
-import Hero from '@/features/landing/components/Hero';
-import PartnersSection from '@/features/landing/components/PartnersSection';
-import ServiceListSection from '@/features/landing/components/ServiceListSection';
-import ProposalSection from '@/features/landing/components/ProposalSection';
-import CaseStudiesSection from '@/features/landing/components/CaseStudiesSection';
-import WorkProcessSection from '@/features/landing/components/WorkProcessSection';
+import { Hero } from '@/features/landing/components/Hero';
+import { ProductListSection } from '@/features/landing/components/ProductListSection';
+import AnnouncementSection from '@/features/landing/components/AnnouncementSection';
 import TestimonialsSection from '@/features/landing/components/TestimonialsSection';
 import ContactUsSection from '@/features/landing/components/ContactUsSection';
 import Footer from '@/features/landing/components/Footer';
+import { LandingLayout } from '@/features/landing/layouts/LandingLayout';
+import { Spacer } from '@/components/atoms/Spacer';
+import { LANDING_PAGE_SECTION_IDS } from '@/features/landing/layouts/LandingLayout/utils';
 
 const LandingPage = () => {
   return (
-    <div className="flex flex-col gap-y-20">
-      <Hero />
-      <PartnersSection />
-      <ServiceListSection />
-      <ProposalSection />
-      <CaseStudiesSection />
-      <WorkProcessSection />
-      <TestimonialsSection />
-      <ContactUsSection />
-      <Footer />
-    </div>
+    <>
+      <LandingLayout.Container>
+        <Hero />
+        <Spacer height={5} />
+      </LandingLayout.Container>
+
+      <div className="bg-background-light">
+        <LandingLayout.Container>
+          <Spacer height={1} />
+          <AnnouncementSection />
+          <Spacer height={3} id={LANDING_PAGE_SECTION_IDS.PRODUCTS} />
+          <ProductListSection />
+          <Spacer height={5} />
+        </LandingLayout.Container>
+      </div>
+
+      <LandingLayout.Container>
+        <Spacer height={5} id={LANDING_PAGE_SECTION_IDS.TESTIMONIALS} />
+        <TestimonialsSection />
+        <Spacer height={5} id={LANDING_PAGE_SECTION_IDS.CONTACT_US} />
+        <ContactUsSection />
+        <Spacer height={5} />
+        <Footer />
+      </LandingLayout.Container>
+    </>
   );
 };
 

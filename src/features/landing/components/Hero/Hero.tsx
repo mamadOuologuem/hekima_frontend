@@ -1,8 +1,8 @@
-import ManThoughtsIllustration from '@/components/atoms/illustrations/ManThoughtsIllustration';
+import { ManThoughtsIllustration } from '@/components/atoms/illustrations';
 import { Button } from '@/components/ui/button';
 import GradualSpacing from '@/components/ui/gradual-spacing';
 
-const Hero = () => {
+export const Hero = () => {
   return (
     <section className="flex flex-col items-center gap-20 md:flex-row">
       <div className="flex flex-1 flex-col gap-8">
@@ -18,18 +18,20 @@ const Hero = () => {
         </p>
 
         <Button size="lg" className="w-fit">
-          Book a consultation
+          Join the waiting list
         </Button>
       </div>
 
       <div className="w-3/4 md:w-5/12 lg:w-6/12">
-        <div className="flex gap-x-6">
-          <ManThoughtsIllustration primaryColor="#811C00" secondaryColor="#23292E" className="-scale-x-100" />
-          <ManThoughtsIllustration />
+        <div className="flex ">
+          <ManThoughtsIllustration
+            primaryColor="#811C00"
+            secondaryColor="#23292E"
+            className="translate-x-7 -scale-x-100"
+          />
+          <ManThoughtsIllustration className="z-10" />
         </div>
       </div>
     </section>
   );
 };
-
-export default Hero;

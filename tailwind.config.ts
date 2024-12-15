@@ -8,7 +8,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: 'hsl(var(--background))',
+        background: {
+          light: 'hsl(var(--background-light))',
+          DEFAULT: 'hsl(var(--background))'
+        },
         foreground: 'hsl(var(--foreground))',
         card: {
           DEFAULT: 'hsl(var(--card))',
@@ -23,11 +26,15 @@ const config: Config = {
           foreground: 'hsl(var(--primary-foreground))'
         },
         secondary: {
+          lightest: 'hsl(var(--secondary-lightest))',
+          light: 'hsl(var(--secondary-light))',
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))'
         },
         tertiary: {
+          light: 'hsl(var(--tertiary-light))',
           DEFAULT: 'hsl(var(--tertiary))',
+          dark: 'hsl(var(--tertiary-dark))',
           foreground: 'hsl(var(--tertiary-foreground))'
         },
         muted: {

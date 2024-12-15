@@ -1,5 +1,4 @@
 import Logo from '@/components/atoms/Logo';
-import { Button } from '@/components/ui/button';
 import AppMenu from '@/features/landing/components/AppMenu';
 import type { MenuItem } from '@/features/landing/types';
 import Link from 'next/link';
@@ -10,7 +9,7 @@ interface AppBarProps {
 
 const AppBar = ({ menuItems }: AppBarProps) => {
   return (
-    <header className="bg-white">
+    <header>
       <nav aria-label="Global" className="flex items-center justify-between">
         <Link href="#" className="-m-1.5 p-1.5">
           <span className="sr-only">Hekima</span>
@@ -27,8 +26,6 @@ const AppBar = ({ menuItems }: AppBarProps) => {
               {item.name}
             </Link>
           ))}
-
-          <Button variant="outline">Request a quote</Button>
         </div>
       </nav>
     </header>
