@@ -1,7 +1,6 @@
 import type { Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
 import tailwindAnimatePlugin from 'tailwindcss-animate';
-// import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette';
 
 const config: Config = {
   darkMode: ['class'],
@@ -52,6 +51,12 @@ const config: Config = {
           '3': 'hsl(var(--chart-3))',
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))'
+        }
+      },
+      keyframes: {
+        'appearing-svg-path': {
+          from: { 'stroke-dashoffset': 'var(--start-dashoffset)' },
+          to: { 'stroke-dashoffset': 'var(--end-dashoffset, 0)' }
         }
       },
       borderRadius: {
