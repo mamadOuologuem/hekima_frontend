@@ -3,23 +3,16 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial Helvetica sans-serif;
 }
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    /************************** Colors **************************/
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 87 100% 70%;
-    --secondary-foreground: 240 5.9% 10%;
-    --tertiary: 234, 17%, 12%;
-    --tertiary-foreground: 240 5.9% 10%;
     --muted: 0 0% 95%;
     --muted-foreground: 240 5.9% 10%;
     --accent: 240 4.8% 95.9%;
@@ -34,6 +27,31 @@ body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+
+    /* Primary colors */
+    --primary: 207 14% 16%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Secondary colors */
+    --secondary: 32 44% 60%;
+    --secondary-foreground: 240 5.9% 10%;
+    --secondary-light: 34 77% 86%;
+    --secondary-lightest: 21 47% 88%;
+
+    /* Tertiary colors */
+    --tertiary: 13 100% 25%;
+    --tertiary-foreground: 240 5.9% 10%;
+    --tertiary-light: 13 70% 45%;
+    --tertiary-dark: 13 100% 12%;
+
+    /* Background colors */
+    --background: 28 62% 96%;
+    --background-light: 43 54% 97%;
+
+    /* Foreground colors */
+    --foreground: 207 14% 16%;
+
+    /************************** Others **************************/
     --radius: 0.5rem;
   }
   .dark {

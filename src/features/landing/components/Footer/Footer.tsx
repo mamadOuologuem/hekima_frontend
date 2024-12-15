@@ -11,16 +11,9 @@ import Logo from '@/components/atoms/Logo';
 import Link from 'next/link';
 import SocialMedia from './components/SocialMedia';
 import { useToast } from '@/hooks/use-toast';
+import { menuItems } from '@/features/landing/layouts/LandingLayout/utils';
 
 const FormSchema = z.object({ email: z.string().email() });
-
-const menuItems = [
-  { name: 'About Us', href: '#' },
-  { name: 'Services', href: '#' },
-  { name: 'Use Cases', href: '#' },
-  { name: 'Pricing', href: '#' },
-  { name: 'Blog', href: '#' }
-];
 
 const Footer = () => {
   const { toast } = useToast();
@@ -39,9 +32,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="flex flex-col gap-16 rounded-t-3xl border border-tertiary bg-tertiary p-10 text-white">
+    <footer className="flex flex-col gap-16 rounded-t-3xl border border-primary bg-primary p-10 text-white">
       <div className="flex w-full flex-col justify-between gap-5 md:flex-row">
-        <Logo />
+        <Logo className="text-white" />
         <div className="flex flex-col gap-5 md:flex-row">
           {menuItems.map((item) => (
             <Link key={item.name} href={item.href} className="underline">
@@ -63,7 +56,7 @@ const Footer = () => {
             Moonstone City, Stardust State 12345
           </p>
         </div>
-        <div className="h-fit rounded-lg bg-[#292A32] px-5 py-8 md:px-14 md:py-10">
+        <div className="h-fit px-5 py-8 md:px-14 md:py-10">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -75,14 +68,18 @@ const Footer = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input placeholder="Email" {...field} className="h-11" />
+                      <Input
+                        placeholder="Email"
+                        {...field}
+                        className="h-11 bg-transparent text-primary-foreground placeholder:text-primary-foreground"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
 
-              <Button type="submit" size="lg" variant="secondary">
+              <Button type="submit" size="lg" className="bg-white text-primary hover:bg-white/70">
                 Subscribe to news
               </Button>
             </form>

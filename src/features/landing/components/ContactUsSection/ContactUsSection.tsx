@@ -49,7 +49,7 @@ const ContactUsSection = () => {
         }
       />
 
-      <div className="flex justify-between overflow-hidden rounded-3xl bg-muted p-8 md:p-16">
+      <div className="flex justify-between overflow-hidden rounded-3xl bg-secondary-light p-8 md:p-16">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 md:w-2/3">
             <FormField
@@ -130,11 +130,11 @@ const Illustration = () => (
     />
     <path
       d="M95.7147 470.596L141.422 495.5L95.7147 520.604L70.7109 566.21L45.7072 520.604L0.000261762 495.5L45.7072 470.596L70.7109 424.789L95.7147 470.596Z"
-      fill="#B9FF66"
+      fill="#811C00"
     />
     <path
       d="M217.102 244.065L298.777 288.566L217.102 333.425L172.422 414.922L127.742 333.425L46.0666 288.566L127.742 244.065L172.422 162.211L217.102 244.065Z"
-      fill="#191A23"
+      fill="#23292E"
     />
   </svg>
 );
