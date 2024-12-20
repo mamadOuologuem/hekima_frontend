@@ -1,3 +1,5 @@
+'use client';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,12 +10,17 @@ import {
 
 import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 import type { MenuItem } from '@/features/landing/types';
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 
 interface AppMenuProps {
   menuItems: MenuItem[];
 }
 
 const AppMenu = ({ menuItems }: AppMenuProps) => {
+  const pathname = usePathname();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -26,7 +33,11 @@ const AppMenu = ({ menuItems }: AppMenuProps) => {
       <DropdownMenuContent className="w-56" align="end">
         <DropdownMenuGroup>
           {menuItems.map((item) => (
-            <DropdownMenuItem key={item.name}>{item.name}</DropdownMenuItem>
+            <DropdownMenuItem key={item.name}>
+              <Link key={item.name} href={item.href} className={cn(item.href === pathname && 'font-bold underline')}>
+                {item.name}
+              </Link>
+            </DropdownMenuItem>
           ))}
         </DropdownMenuGroup>
       </DropdownMenuContent>

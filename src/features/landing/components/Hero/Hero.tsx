@@ -1,6 +1,7 @@
 import { ManThoughtsIllustration } from '@/components/atoms/illustrations';
 import { Button } from '@/components/ui/button';
 import GradualSpacing from '@/components/ui/gradual-spacing';
+import Link from 'next/link';
 
 export const Hero = () => {
   return (
@@ -17,20 +18,22 @@ export const Hero = () => {
           real progress happens when everyone has a chance to join in.
         </p>
 
-        <Button size="lg" className="w-fit">
-          Join the waiting list
-        </Button>
+        <Link href="/saama">
+          <Button size="lg" className="w-fit">
+            Join the waiting list
+          </Button>
+        </Link>
       </div>
 
-      <div className="w-3/4 md:w-5/12 lg:w-6/12">
+      <div className="w-full md:w-5/12 lg:w-6/12">
         <div className="flex ">
           <ManThoughtsIllustration
             primaryColor="#811C00"
             secondaryColor="#23292E"
-            className="translate-x-7 -scale-x-100"
+            className="translate-x-3 -scale-x-100"
             animated
           />
-          <ManThoughtsIllustration className="z-10" animated />
+          <ManThoughtsIllustration className="z-10 -translate-x-3" animated />
         </div>
       </div>
     </section>

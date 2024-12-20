@@ -56,7 +56,7 @@ const Footer = () => {
             Moonstone City, Stardust State 12345
           </p>
         </div>
-        <div className="h-fit px-5 py-8 md:px-14 md:py-10">
+        <div className="h-fit px-0 py-8 md:px-14 md:py-10">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}

@@ -14,8 +14,8 @@ interface ContractAttributes {
 export const addContactToList = async (
   listKey: ContactListKey,
   props: ({ email: string } | { phone: string }) & { attributes?: Partial<ContractAttributes> }
-): Promise<void> => {
-  const createContact = new brevo.CreateContact();
+): Promise<'success' | 'duplicate'> => {
+  const createContact = new CreateContact();
   createContact.listIds = [CONTACT_LIST_MAPPING[listKey]];
   createContact.attributes = props.attributes;
 
@@ -27,21 +27,32 @@ export const addContactToList = async (
     createContact.attributes = { ...createContact.attributes, WHATSAPP: props.phone };
   }
 
-  await contactApi.createContact(createContact).catch((error) => {
-    // User is already subscribed
-    if (error.statusCode === 400 && error.body.code === 'duplicate_parameter') {
-      return;
-    }
+  return contactApi
+    .createContact(createContact)
+    .then(() => 'success' as const)
+    .catch((error) => {
+      // User is already subscribed
+      if (error.statusCode === 400 && error.body.code === 'duplicate_parameter') {
+        return 'duplicate';
+      }
 
-    throw error;
-  });
+      logErrorMessage(error);
+      throw error;
+    });
 };
 
 export const getListDetails = async (listKey: ContactListKey): Promise<{ subscriberCount: number }> => {
-  const listId = CONTACT_LIST_MAPPING[listKey];
-  const list = await contactApi.getList(listId).then(({ body }) => body);
+  try {
+    const listId = CONTACT_LIST_MAPPING[listKey];
+    const list = await contactApi.getList(listId).then(({ body }) => body);
 
-  return {
-    subscriberCount: list.uniqueSubscribers
-  };
+    return {
+      subscriberCount: list.uniqueSubscribers
+    };
+  } catch (error) {
+    logErrorMessage(error);
+    throw error;
+  }
 };
+
+const logErrorMessage = (error: unknown) => console.error(JSON.stringify(error, null, 2));

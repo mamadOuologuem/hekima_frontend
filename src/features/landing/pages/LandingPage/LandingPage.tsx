@@ -18,7 +18,7 @@ const LandingPage = () => {
 
       <div className="bg-background-light">
         <LandingLayout.Container>
-          <Spacer height={1} />
+          <Spacer height={1} className="hidden md:block" />
           <AnnouncementSection />
           <Spacer height={3} id={LANDING_PAGE_SECTION_IDS.PRODUCTS} />
           <ProductListSection />
@@ -27,7 +27,7 @@ const LandingPage = () => {
       </div>
 
       <LandingLayout.Container>
-        <Spacer height={5} id={LANDING_PAGE_SECTION_IDS.TESTIMONIALS} />
+        <Spacer height={5} className="hidden md:block" id={LANDING_PAGE_SECTION_IDS.TESTIMONIALS} />
         <TestimonialsSection />
         <Spacer height={5} id={LANDING_PAGE_SECTION_IDS.CONTACT_US} />
         <ContactUsSection />

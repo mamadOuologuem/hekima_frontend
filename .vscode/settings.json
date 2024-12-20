@@ -11,5 +11,5 @@
     "tsconfig.json": "tsconfig.build.json, tsconfig.entities.json, .swcrc",
     "Taskfile.yml": "heroku.yml"
   },
-  "cSpell.words": ["Hekima"]
+  "cSpell.words": ["hekima", "Hekima", "Saama", "whatsapp"]
 }
