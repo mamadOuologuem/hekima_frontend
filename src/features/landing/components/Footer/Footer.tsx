@@ -1,6 +1,6 @@
 'use client';
 
-import { subscribeEmailToNewsletter } from '@/lib/email-service';
+import { addContactToList } from '@/lib/marketing';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -21,7 +21,7 @@ const Footer = () => {
   const form = useForm<z.infer<typeof FormSchema>>({ resolver: zodResolver(FormSchema), defaultValues: { email: '' } });
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
-    await subscribeEmailToNewsletter(data.email)
+    await addContactToList('NEWSLETTER', { email: data.email })
       .then(() => {
         form.reset();
         toast({ title: 'Subscribed!', description: 'You have successfully subscribed to our newsletter' });

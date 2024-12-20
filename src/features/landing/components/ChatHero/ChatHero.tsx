@@ -4,7 +4,7 @@ import { TypewriterText } from '@/components/atoms/TypewriterText';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
-import { subscribeEmailToNewsletter } from '@/lib/email-service';
+import { addContactToList } from '@/lib/marketing';
 import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -31,7 +31,7 @@ const ChatHero = () => {
   });
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
-    await subscribeEmailToNewsletter(data.phoneNumber)
+    await addContactToList('WAITING_LIST', { phone: data.phoneNumber, attributes: { source: 'landing' } })
       .then(() => {
         form.reset();
         toast({ title: 'Subscribed!', description: 'You have successfully subscribed to our newsletter' });

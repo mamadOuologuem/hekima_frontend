@@ -2,7 +2,7 @@
 
 import SectionTitle from '@/features/landing/components/SectionTitle';
 
-import { sendContactEmail } from '@/lib/email-service';
+import { sendTransactionalEmail } from '@/lib/marketing';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -26,7 +26,9 @@ const ContactUsSection = () => {
   const { toast } = useToast();
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
-    await sendContactEmail(data.name, data.email, data.message)
+    await sendTransactionalEmail('CONTACT_US', {
+      params: { prospectName: data.name, prospectEmail: data.email, prospectMessage: data.message }
+    })
       .then(() => {
         form.reset();
         toast({ title: 'Message Sent!', description: 'We will get back to you shortly' });

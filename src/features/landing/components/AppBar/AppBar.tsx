@@ -17,7 +17,7 @@ const AppBar = ({ menuItems }: AppBarProps) => {
   return (
     <header>
       <nav aria-label="Global" className="flex items-center justify-between">
-        <Link href="#" className="-m-1.5 p-1.5">
+        <Link href="/" className="-m-1.5 p-1.5">
           <span className="sr-only">Hekima</span>
           <Logo />
         </Link>
