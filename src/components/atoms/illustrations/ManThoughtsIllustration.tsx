@@ -10,7 +10,7 @@ interface ManThoughtsIllustrationProps {
 export const ManThoughtsIllustration = ({
   primaryColor = '#23292E',
   secondaryColor = '#811C00',
-  animated = true,
+  animated = false,
   className
 }: ManThoughtsIllustrationProps) => (
   <svg viewBox="0 0 311 429" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>

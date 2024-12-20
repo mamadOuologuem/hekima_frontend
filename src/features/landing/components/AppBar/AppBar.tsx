@@ -1,13 +1,19 @@
+'use client';
+
 import Logo from '@/components/atoms/Logo';
 import AppMenu from '@/features/landing/components/AppMenu';
 import type { MenuItem } from '@/features/landing/types';
+import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface AppBarProps {
   menuItems: MenuItem[];
 }
 
 const AppBar = ({ menuItems }: AppBarProps) => {
+  const pathname = usePathname();
+
   return (
     <header>
       <nav aria-label="Global" className="flex items-center justify-between">
@@ -22,7 +28,14 @@ const AppBar = ({ menuItems }: AppBarProps) => {
 
         <div className="hidden items-center md:flex md:gap-x-12">
           {menuItems.map((item) => (
-            <Link key={item.name} href={item.href} className="text-sm/6 text-gray-900">
+            <Link
+              key={item.name}
+              href={item.href}
+              className={cn(
+                'text-sm/6 text-gray-900 hover:font-semibold',
+                item.href === pathname && 'font-bold underline'
+              )}
+            >
               {item.name}
             </Link>
           ))}

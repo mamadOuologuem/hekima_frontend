@@ -1,7 +1,4 @@
 interface ManThoughtsIllustration2Props {
-  primaryColor?: string;
-  secondaryColor?: string;
-  animated?: boolean;
   className?: string;
 }
 

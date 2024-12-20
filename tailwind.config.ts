@@ -64,6 +64,13 @@ const config: Config = {
         'appearing-svg-path': {
           from: { 'stroke-dashoffset': 'var(--start-dashoffset)' },
           to: { 'stroke-dashoffset': 'var(--end-dashoffset, 0)' }
+        },
+        'caret-blink': {
+          '0%': { 'border-color': 'transparent' },
+          '0.1%': { 'border-color': 'var(--caret-blink-caret-color, hsl(var(---secondary-foreground)))' },
+          '50%': { 'border-color': 'var(--caret-blink-caret-color, hsl(var(---secondary-foreground)))' },
+          '50.1%': { 'border-color': 'transparent' },
+          '100%': { 'border-color': 'transparent' }
         }
       },
       borderRadius: {

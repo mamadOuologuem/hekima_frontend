@@ -28,8 +28,9 @@ export const Hero = () => {
             primaryColor="#811C00"
             secondaryColor="#23292E"
             className="translate-x-7 -scale-x-100"
+            animated
           />
-          <ManThoughtsIllustration className="z-10" />
+          <ManThoughtsIllustration className="z-10" animated />
         </div>
       </div>
     </section>
