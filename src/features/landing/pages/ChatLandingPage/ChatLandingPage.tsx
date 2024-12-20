@@ -9,12 +9,12 @@ export const ChatLandingPage = () => {
         <ManThoughtsIllustrationLong
           primaryColor="#811C00"
           secondaryColor="#23292E"
-          className="absolute -bottom-40 -right-40 h-full -scale-x-100"
+          className="absolute -bottom-40 -right-40 -z-10 h-full -scale-x-100"
         />
         <div className="max-w-lg">
           <ChatHero />
         </div>
-        <ManThoughtsIllustrationLong className="absolute -bottom-40 -left-40 h-full" />
+        <ManThoughtsIllustrationLong className="absolute -bottom-40 -left-40 -z-10 h-full" />
       </div>
     </LandingLayout.Container>
   );

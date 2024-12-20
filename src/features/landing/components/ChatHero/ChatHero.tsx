@@ -4,7 +4,7 @@ import { TypewriterText } from '@/components/atoms/TypewriterText';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
-import { addContactToList } from '@/lib/marketing';
+import { addContactToList, getListDetails } from '@/lib/marketing';
 import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -23,6 +23,7 @@ const FormSchema = z.object({ phoneNumber: z.string() });
 
 const ChatHero = () => {
   const [currentPromptIndex, setCurrentPromptIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -31,14 +32,21 @@ const ChatHero = () => {
   });
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
-    await addContactToList('WAITING_LIST', { phone: data.phoneNumber, attributes: { source: 'landing' } })
+    setIsLoading(true);
+    const { subscriberCount } = await getListDetails('WAITING_LIST');
+
+    await addContactToList('WAITING_LIST', {
+      phone: data.phoneNumber,
+      attributes: { WAITING_LIST_POSITION: subscriberCount + 1 }
+    })
       .then(() => {
         form.reset();
-        toast({ title: 'Subscribed!', description: 'You have successfully subscribed to our newsletter' });
+        toast({ title: 'You have joined it!', description: 'We will notify you when we are ready' });
       })
       .catch(() => {
-        toast({ title: 'Failed to subscribe', description: 'Please try again later', variant: 'destructive' });
+        toast({ title: 'Something went wrong', description: 'Please try again later', variant: 'destructive' });
       });
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -90,7 +98,7 @@ const ChatHero = () => {
               )}
             />
 
-            <Button type="submit" size="lg">
+            <Button type="submit" size="lg" isLoading={isLoading}>
               Join the waiting list
             </Button>
           </form>

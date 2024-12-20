@@ -1,15 +1,19 @@
 'use server';
 
-import brevo, { GetExtendedList } from '@getbrevo/brevo';
+import { ContactsApi, CreateContact } from '@getbrevo/brevo';
 import { CONTACT_LIST_MAPPING, ContactListKey } from './utils';
 
 const contactApi = new ContactsApi();
 // @ts-expect-error - apiKey is a protected property
 contactApi.authentications['apiKey'].apiKey = process.env.BREVO_API_KEY;
 
+interface ContractAttributes {
+  WAITING_LIST_POSITION: number;
+}
+
 export const addContactToList = async (
   listKey: ContactListKey,
-  props: ({ email: string } | { phone: string }) & { attributes?: Record<string, string> }
+  props: ({ email: string } | { phone: string }) & { attributes?: Partial<ContractAttributes> }
 ): Promise<void> => {
   const createContact = new brevo.CreateContact();
   createContact.listIds = [CONTACT_LIST_MAPPING[listKey]];
@@ -20,7 +24,7 @@ export const addContactToList = async (
   }
 
   if ('phone' in props) {
-    createContact.whatsapp = props.phone;
+    createContact.attributes = { ...createContact.attributes, WHATSAPP: props.phone };
   }
 
   await contactApi.createContact(createContact).catch((error) => {
@@ -33,13 +37,11 @@ export const addContactToList = async (
   });
 };
 
-export const getListDetails = async (listKey: ContactListKey): Promise<GetExtendedList> => {
+export const getListDetails = async (listKey: ContactListKey): Promise<{ subscriberCount: number }> => {
   const listId = CONTACT_LIST_MAPPING[listKey];
-  return contactApi.getList(listId).then(({ body }) => body);
-};
+  const list = await contactApi.getList(listId).then(({ body }) => body);
 
-declare module '@getbrevo/brevo' {
-  export interface CreateContact {
-    whatsapp?: string;
-  }
-}
+  return {
+    subscriberCount: list.uniqueSubscribers
+  };
+};
