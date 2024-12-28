@@ -10,8 +10,8 @@ interface SocialMediaProps {
 const SocialMedia = ({ className }: SocialMediaProps) => {
   return (
     <div className={cn('flex gap-x-7', className)}>
-      <a href="https://www.linkedin.com" target="_blank">
-        <LogoWhatsApp className="w-10" />
+      <a href="https://wa.me/14245249123" target="_blank">
+        <LogoWhatsApp className="w-[30px]" />
       </a>
       <a href="https://www.facebook.com" target="_blank">
         <LogoFacebook />

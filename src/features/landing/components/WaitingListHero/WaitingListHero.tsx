@@ -119,7 +119,7 @@ export const WaitingListHero = ({
                           inputClassName="!h-11 w-44 !rounded-r-md border border-primary/60 !pr-8 text-sm !text-primary placeholder:text-primary/60 focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50"
                           {...field}
                         />
-                        <LogoWhatsApp className="absolute right-2 w-6 opacity-80" />
+                        <LogoWhatsApp className="absolute right-2 w-6 text-[#25d366] opacity-80" />
                       </div>
                     </FormControl>
                     <FormMessage />

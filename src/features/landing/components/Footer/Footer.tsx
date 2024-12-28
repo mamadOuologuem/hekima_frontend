@@ -46,10 +46,14 @@ const Footer = () => {
       </div>
 
       <div className="flex flex-col justify-between gap-10 sm:flex-row sm:items-center">
-        <div className="space-y-4">
-          <h4 className="ml-2 text-black highlighted-text-secondary">Contact us:</h4>
-          <p>Email: info@hekima-ai.com</p>
-          <p>Phone: 424-524-9123</p>
+        <div className="flex flex-col items-start space-y-4">
+          <h4 className="text-black highlighted-text-secondary">Contact us:</h4>
+          <a target="_blank" href="mailto:info@hekima-ai.com">
+            Email: info@hekima-ai.com
+          </a>
+          <a target="_blank" href="https://wa.me/14245249123">
+            Phone: +1 424-524-9123
+          </a>
         </div>
         <div className="h-fit px-0 py-8 md:px-14 md:py-10">
           <Form {...form}>
