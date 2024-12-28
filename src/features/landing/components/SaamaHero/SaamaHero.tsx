@@ -64,16 +64,19 @@ export const SaamaHero = ({ currentUserWaitingListPosition, totalWaitingListSubs
 
   return (
     <section className="flex flex-col items-center gap-y-10 text-center">
-      <h1 className="flex flex-col items-center">
+      <h1 className="flex flex-col items-center text-9xl">
         <TypewriterText as="p" typeSpeed={TYPE_SPEED}>
           {PROMPTS[currentPromptIndex]}
         </TypewriterText>
-        <p>Saama!</p>
+        <p>Hekima</p>
       </h1>
       {currentUserWaitingListPosition ? (
         <div>
           {subscriptionLeftBeforeOpening > 0 ? (
-            <span>Waiting for ${subscriptionLeftBeforeOpening} to join before the grand opening</span>
+            <span>
+              Waiting for <span className="font-bold">{subscriptionLeftBeforeOpening}</span> to join before the grand
+              opening
+            </span>
           ) : (
             <span>
               We reached the {WAITING_LIST_SUBSCRIPTION_TARGET} subscribers! 🎉
@@ -83,7 +86,7 @@ export const SaamaHero = ({ currentUserWaitingListPosition, totalWaitingListSubs
           )}
         </div>
       ) : (
-        <p className="text-xl">Ask in your own language, and get answers that speak directly to you</p>
+        <p className="text-xl">Join the waiting list with your Whatsapp</p>
       )}
 
       <div className="mt-10 w-fit">

@@ -63,8 +63,9 @@ const TestimonialsSection = () => {
         title="Testimonials"
         subtitle={
           <>
-            Hear from Our Satisfied Clients: Read Our Testimonials to Learn <br />
-            More about Our Digital Marketing Services
+            Hear from Our Users.
+            <br />
+            Read Our Testimonials to Learn More about Our products
           </>
         }
       />

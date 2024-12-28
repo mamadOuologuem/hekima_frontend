@@ -22,9 +22,8 @@ export const ProductListSection = () => (
       title="Our Products"
       subtitle={
         <>
-          We offer a range of services to help businesses grow and
-          <br />
-          succeed online. These services include:
+          We offer a range of products <br />
+          to help our community grow and succed with AI
         </>
       }
     />

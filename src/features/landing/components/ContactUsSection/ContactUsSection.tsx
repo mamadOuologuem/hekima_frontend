@@ -40,16 +40,7 @@ const ContactUsSection = () => {
 
   return (
     <section className="flex flex-col gap-y-14">
-      <SectionTitle
-        title="Contact Us"
-        subtitle={
-          <>
-            Connect with Us: Let&apos;s Discuss Your
-            <br />
-            Digital Marketing Needs
-          </>
-        }
-      />
+      <SectionTitle title="Contact Us" subtitle={<>What to know more ? Reach out</>} />
 
       <div className="flex justify-between overflow-hidden rounded-3xl bg-secondary-light p-8 md:p-16">
         <Form {...form}>

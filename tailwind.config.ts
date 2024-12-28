@@ -71,7 +71,14 @@ const config: Config = {
           '50%': { 'border-color': 'var(--caret-blink-caret-color, hsl(var(---secondary-foreground)))' },
           '50.1%': { 'border-color': 'transparent' },
           '100%': { 'border-color': 'transparent' }
+        },
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' }
         }
+      },
+      animation: {
+        blink: 'blink 1s infinite'
       },
       borderRadius: {
         lg: 'var(--radius)',

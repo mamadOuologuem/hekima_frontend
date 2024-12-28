@@ -18,9 +18,9 @@ export const SaamaLandingPage = async () => {
 
   return (
     <LandingLayout.Container className="mt-0 min-h-[calc(100lvh-103px)]">
-      <div className="relative flex h-full items-center justify-center gap-20 overflow-y-clip md:flex-row">
+      <div className="relative z-10 flex h-full items-center justify-center gap-20 overflow-y-clip md:flex-row">
         <ManThoughtsIllustrationLong
-          primaryColor="#811C00"
+          primaryColor="#59809E"
           secondaryColor="#23292E"
           className="absolute -bottom-40 -right-72 -z-10 h-full -scale-x-100 opacity-5 md:-right-60 md:opacity-100 lg:-right-40"
         />
@@ -30,7 +30,11 @@ export const SaamaLandingPage = async () => {
             totalWaitingListSubscribers={subscriberCount}
           />
         </div>
-        <ManThoughtsIllustrationLong className="absolute -bottom-40 -left-72 -z-10 h-full opacity-5 md:-left-60 md:opacity-100 lg:-left-40 " />
+        <ManThoughtsIllustrationLong
+          secondaryColor="#59809E"
+          primaryColor="#23292E"
+          className="absolute -bottom-40 -left-72 -z-10 h-full opacity-5 md:-left-60 md:opacity-100 lg:-left-40 "
+        />
       </div>
     </LandingLayout.Container>
   );
