@@ -6,7 +6,7 @@ import { ManThoughtsIllustration2, ManThoughtsIllustration3 } from '@/components
 const services = [
   {
     title: 'Conversational search engine',
-    href: '/saama',
+    href: '/waiting-list',
     illustration: <ManThoughtsIllustration2 />
   },
   {

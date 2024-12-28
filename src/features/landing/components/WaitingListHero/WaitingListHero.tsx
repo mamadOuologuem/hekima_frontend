@@ -23,12 +23,15 @@ const TYPE_SPEED = 200;
 
 const FormSchema = z.object({ phoneNumber: z.string() });
 
-interface SaamaHeroProps {
+interface WaitingListHeroProps {
   currentUserWaitingListPosition?: number;
   totalWaitingListSubscribers: number;
 }
 
-export const SaamaHero = ({ currentUserWaitingListPosition, totalWaitingListSubscribers }: SaamaHeroProps) => {
+export const WaitingListHero = ({
+  currentUserWaitingListPosition,
+  totalWaitingListSubscribers
+}: WaitingListHeroProps) => {
   const [currentPromptIndex, setCurrentPromptIndex] = useState(0);
   const [isLoading, startTransition] = useTransition();
   const { toast } = useToast();

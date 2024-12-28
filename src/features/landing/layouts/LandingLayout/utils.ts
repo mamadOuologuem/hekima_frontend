@@ -5,7 +5,7 @@ export const LANDING_PAGE_SECTION_IDS = {
 };
 
 export const menuItems = [
-  { name: 'Saama', href: '/saama' },
+  { name: 'Waiting list', href: '/waiting-list' },
   { name: 'Our products', href: `/#${LANDING_PAGE_SECTION_IDS.PRODUCTS}` },
   { name: 'Testimonials', href: `/#${LANDING_PAGE_SECTION_IDS.TESTIMONIALS}` },
   { name: 'Contact Us', href: `/#${LANDING_PAGE_SECTION_IDS.CONTACT_US}` }

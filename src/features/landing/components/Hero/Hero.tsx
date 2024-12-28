@@ -18,7 +18,7 @@ export const Hero = () => {
           real progress happens when everyone has a chance to join in.
         </p>
 
-        <Link href="/saama">
+        <Link href="/waiting-list">
           <Button size="lg" className="w-fit">
             Join the waiting list
           </Button>
