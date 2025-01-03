@@ -9,31 +9,31 @@ import { useTranslations } from 'next-intl';
 const testimonials = [
   {
     author: 'Aminata Diallo',
-    location: 'Bamako',
+    location: 'Bamako, Mali',
     testimonial:
       'Hekima m’a énormément aidée à gérer mes tâches quotidiennes. Je peux obtenir des réponses rapides en français, ou même en bambara. C’est comme avoir un assistant personnel disponible 24h/24 et 7j/7. Une vraie révolution pour nous ici à Bamako !'
   },
   {
     author: 'Ibrahima Coulibaly',
-    location: 'Ségou',
+    location: 'Ségou, Mali',
     testimonial:
       'Grâce à Hekima, je peux accéder à des informations sur les opportunités d’emploi et des conseils agricoles adaptés à notre région. Cela fait une vraie différence pour ma famille et moi, surtout dans notre village de Ségou. Bravo !'
   },
   {
     author: 'Fatoumata Traoré',
-    location: 'Kayes',
+    location: 'Kayes, Mali',
     testimonial:
       'Ce que j’aime le plus avec Hekima, c’est qu’il comprend nos besoins locaux. Que ce soit pour l’éducation de mes enfants ou des informations pratiques sur la santé, je trouve toujours des réponses fiables. Merci pour cette application, c’est vraiment utile pour les femmes comme moi.'
   },
   {
     author: 'Mamadou Diarra',
-    location: 'Sikasso',
+    location: 'Sikasso, Mali',
     testimonial:
       'Hekima a rendu mes recherches d’informations rapides et efficaces. Avant, je perdais beaucoup de temps à chercher sur Internet. Maintenant, je peux poser mes questions en bambara et obtenir des réponses claires. L’interface est tellement simple à utiliser, même pour les non-initiés.'
   },
   {
     author: 'Salif Keita',
-    location: 'Koutiala',
+    location: 'Koutiala, Mali',
     testimonial:
       'Avec Hekima, je me sens connecté au monde tout en restant enraciné dans ma culture. L’intelligence artificielle au service de l’Afrique, c’est exactement ce qu’il nous faut pour avancer.'
   }

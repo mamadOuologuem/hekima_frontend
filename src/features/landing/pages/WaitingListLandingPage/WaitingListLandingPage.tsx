@@ -17,7 +17,7 @@ export const WaitingListLandingPage = async () => {
   const { subscriberCount } = await getListDetails('WAITING_LIST');
 
   return (
-    <LandingLayout.Container className="mt-0 min-h-[calc(100lvh-103px)]">
+    <LandingLayout.Container className="mt-0 h-full min-h-[calc(100lvh-103px)]">
       <div className="relative z-10 flex h-full items-center justify-center gap-20 overflow-y-clip md:flex-row">
         <ManThoughtsIllustrationLong
           primaryColor="#59809E"

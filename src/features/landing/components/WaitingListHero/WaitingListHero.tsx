@@ -1,6 +1,5 @@
 'use client';
 
-import { TypewriterText } from '@/components/atoms/TypewriterText';
 import { Button } from '@/components/ui/button';
 import CountUp from 'react-countup';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
@@ -15,12 +14,12 @@ import 'react-international-phone/style.css';
 import { LogoWhatsApp } from '@/components/atoms/logos';
 import { registerUserToWhatsAppWaitingList } from './action';
 import { useTranslations } from 'next-intl';
+import { cn } from '@/lib/utils';
 
 const PROMPTS = ['Salut', 'I ni ce', 'Hello', 'Hola', '你好', 'Ciao', 'Olá', 'Hallo', 'مرحبا'];
 const WAITING_LIST_SUBSCRIPTION_TARGET = 2_000;
-
-const INTERVAL_DURATION = 3_000;
-const TYPE_SPEED = 200;
+const STARTING_COUNT_IN_WAITING_LIST = 500;
+const INTERVAL_DURATION = 2_000;
 
 const FormSchema = z.object({ phoneNumber: z.string() });
 
@@ -37,7 +36,8 @@ export const WaitingListHero = ({
   const [currentPromptIndex, setCurrentPromptIndex] = useState(0);
   const [isLoading, startTransition] = useTransition();
   const { toast } = useToast();
-  const subscriptionLeftBeforeOpening = WAITING_LIST_SUBSCRIPTION_TARGET - totalWaitingListSubscribers;
+  const subscriptionLeftBeforeOpening =
+    WAITING_LIST_SUBSCRIPTION_TARGET - totalWaitingListSubscribers - STARTING_COUNT_IN_WAITING_LIST;
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -70,9 +70,23 @@ export const WaitingListHero = ({
   return (
     <section className="flex flex-col items-center gap-y-10 text-center">
       <h1 className="flex flex-col items-center text-7xl sm:text-9xl">
-        <TypewriterText as="p" typeSpeed={TYPE_SPEED} className="min-h-20 sm:min-h-32">
-          {PROMPTS[currentPromptIndex]}
-        </TypewriterText>
+        <div className="relative">
+          {/* eslint-disable-next-line react/jsx-no-literals */}
+          <p className="opacity-0" aria-hidden="true">
+            placeholder
+          </p>
+          {PROMPTS.map((prompt) => (
+            <p
+              key={prompt}
+              className={cn(
+                'absolute w-full text-center top-0 min-h-20 sm:min-h-32 opacity-0 transition ease-in-out duration-700',
+                PROMPTS[currentPromptIndex] === prompt && 'opacity-1'
+              )}
+            >
+              {prompt}
+            </p>
+          ))}
+        </div>
         <p>{t('common.app_name')}</p>
       </h1>
       {currentUserWaitingListPosition ? (
@@ -101,7 +115,11 @@ export const WaitingListHero = ({
         {currentUserWaitingListPosition ? (
           <div>
             <p>{t('landing_page.waiting_list__user_position_text')}</p>
-            <CountUp className="text-6xl font-medium" start={1} end={currentUserWaitingListPosition} />
+            <CountUp
+              className="text-6xl font-medium"
+              start={1}
+              end={STARTING_COUNT_IN_WAITING_LIST + currentUserWaitingListPosition}
+            />
           </div>
         ) : (
           <Form {...form}>

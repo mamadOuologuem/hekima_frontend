@@ -9,14 +9,7 @@ export const ManThoughtsIllustrationLong = ({
   secondaryColor = '#811C00',
   className
 }: ManThoughtsIllustration3Props) => (
-  <svg
-    // width="100%"
-    // height="100%"
-    viewBox="0 0 311 583"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
-  >
+  <svg viewBox="0 0 311 583" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M237.592 199.833c3.709.2 11.226-1.527 10.2-6.66-.392-1.959-2.465-1.829-4.051-1.713-5.548.404-11.106 2.134-16.638 2.451-.726.633-3.452.736-2.681 1.994.476.779 11.627 3.845 13.17 3.928"
       fill={primaryColor}
