@@ -24,7 +24,7 @@ export const WaitingListLandingPage = async () => {
           secondaryColor="#23292E"
           className="absolute -bottom-40 -right-72 -z-10 h-full -scale-x-100 opacity-5 md:-right-60 md:opacity-100 lg:-right-40"
         />
-        <div className="max-w-lg px-12 md:px-20">
+        <div className="max-w-lg px-8 sm:px-12 md:px-20">
           <WaitingListHero
             currentUserWaitingListPosition={currentUserWaitingListPosition}
             totalWaitingListSubscribers={subscriberCount}

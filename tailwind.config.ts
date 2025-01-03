@@ -98,9 +98,10 @@ const config: Config = {
               border: `1px solid ${value}`,
               borderRadius: '0.5rem',
               backgroundColor: value,
-              boxShadow: `0.5rem 0 0 ${value},-0.5rem 0 0 ${value}`,
+              boxShadow: `inset 0.5rem 0 0 ${value},inset -0.5rem 0 0 ${value}`,
               boxDecorationBreak: 'clone',
-              transform: 'translateX(0.25em)'
+              paddingLeft: '0.5em',
+              paddingRight: '0.5em'
             };
           }
         },

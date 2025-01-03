@@ -16,7 +16,7 @@ import { LogoWhatsApp } from '@/components/atoms/logos';
 import { registerUserToWhatsAppWaitingList } from './action';
 import { useTranslations } from 'next-intl';
 
-const PROMPTS = ['Bonjour', 'I ni ce', 'Hello', 'Hola', '你好', 'Ciao', 'Olá', 'Hallo', 'مرحبا'];
+const PROMPTS = ['Salut', 'I ni ce', 'Hello', 'Hola', '你好', 'Ciao', 'Olá', 'Hallo', 'مرحبا'];
 const WAITING_LIST_SUBSCRIPTION_TARGET = 2_000;
 
 const INTERVAL_DURATION = 3_000;
@@ -97,7 +97,7 @@ export const WaitingListHero = ({
         <p className="text-xl">{t('landing_page.waiting_list__text')}</p>
       )}
 
-      <div className="mt-10 w-fit">
+      <div className="mt-10 w-full sm:w-fit">
         {currentUserWaitingListPosition ? (
           <div>
             <p>{t('landing_page.waiting_list__user_position_text')}</p>
@@ -115,13 +115,14 @@ export const WaitingListHero = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <div className="relative flex items-center">
+                      <div className="relative flex w-full items-center">
                         <PhoneInput
                           defaultCountry="ml"
                           countrySelectorStyleProps={{ buttonClassName: '!h-11 !px-4 !rounded-tl-md !rounded-bl-md' }}
                           disableCountryGuess
                           placeholder="WhatsApp number"
-                          inputClassName="!h-11 w-44 !rounded-r-md border border-primary/60 !pr-8 text-sm !text-primary placeholder:text-primary/60 focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50"
+                          className="w-full"
+                          inputClassName="!h-11 w-full sm:w-52 !rounded-r-md border border-primary/60 !pr-8 !text-base !sm:text-sm !text-primary placeholder:text-primary/60 focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50"
                           {...field}
                         />
                         <LogoWhatsApp className="absolute right-2 w-6 text-[#25d366] opacity-80" />
