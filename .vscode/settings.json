@@ -11,5 +11,7 @@
     "tsconfig.json": "tsconfig.build.json, tsconfig.entities.json, .swcrc",
     "Taskfile.yml": "heroku.yml"
   },
-  "cSpell.words": ["hekima", "Hekima", "whatsapp"]
+  "cSpell.words": ["hekima", "Hekima", "whatsapp"],
+  "i18n-ally.localesPaths": ["./messages"],
+  "i18n-ally.keystyle": "nested"
 }

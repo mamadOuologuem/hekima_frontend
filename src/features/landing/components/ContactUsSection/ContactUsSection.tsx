@@ -11,6 +11,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { useTranslations } from 'next-intl';
 
 const FormSchema = z.object({
   name: z.string().min(1),
@@ -19,6 +20,8 @@ const FormSchema = z.object({
 });
 
 const ContactUsSection = () => {
+  const t = useTranslations('landing_page');
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: { name: '', email: '', message: '' }
@@ -40,7 +43,7 @@ const ContactUsSection = () => {
 
   return (
     <section className="flex flex-col gap-y-14">
-      <SectionTitle title="Contact Us" subtitle={<>What to know more ? Reach out</>} />
+      <SectionTitle title={t('contact_us__title')} subtitle={t.rich('contact_us__subtitle', { br: () => <br /> })} />
 
       <div className="flex justify-between overflow-hidden rounded-3xl bg-secondary-light p-8 md:p-16">
         <Form {...form}>
@@ -50,9 +53,9 @@ const ContactUsSection = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>{t('contact_us__name_field_label')}</FormLabel>
                   <FormControl>
-                    <Input placeholder="Name" {...field} />
+                    <Input placeholder={t('contact_us__name_field_placeholder')} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -63,9 +66,9 @@ const ContactUsSection = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>{t('contact_us__email_field_label')}</FormLabel>
                   <FormControl>
-                    <Input placeholder="Email" {...field} />
+                    <Input placeholder={t('contact_us__email_field_placeholder')} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -76,16 +79,16 @@ const ContactUsSection = () => {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message</FormLabel>
+                  <FormLabel>{t('contact_us__message_field_label')}</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Message" rows={6} {...field} />
+                    <Textarea placeholder={t('contact_us__message_field_placeholder')} rows={6} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
             <Button type="submit" className="w-full">
-              Submit
+              {t('contact_us__submit_button_title')}
             </Button>
           </form>
         </Form>
@@ -101,7 +104,7 @@ const ContactUsSection = () => {
 export default ContactUsSection;
 
 const Illustration = () => (
-  <svg viewBox="0 0 692 649" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" height="100%" viewBox="0 0 692 649" fill="none" xmlns="http://www.w3.org/2000/svg">
     <mask
       id="path-1-outside-1_341_618"
       maskUnits="userSpaceOnUse"

@@ -4,6 +4,7 @@ import Logo from '@/components/atoms/Logo';
 import AppMenu from '@/features/landing/components/AppMenu';
 import type { MenuItem } from '@/features/landing/types';
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -13,12 +14,13 @@ interface AppBarProps {
 
 const AppBar = ({ menuItems }: AppBarProps) => {
   const pathname = usePathname();
+  const t = useTranslations('common');
 
   return (
     <header>
       <nav aria-label="Global" className="flex items-center justify-between">
         <Link href="/" className="-m-1.5 p-1.5">
-          <span className="sr-only">Hekima</span>
+          <span className="sr-only">{t('app_name')}</span>
           <Logo />
         </Link>
 

@@ -1,0 +1,49 @@
+{
+  "landing_page": {
+    "title": "Bonjour tout le monde !",
+    "hero__title_first_half": "L'IA pour tous,",
+    "hero__title_second_half": "et partout",
+    "hero__title": "L'IA pour le plus grand nombre, pas pour quelques-uns",
+    "hero__subtitle": "Nous ne faisons pas que construire une IA ; nous la concevons pour faire une différence. Hekima crée des solutions intelligentes pour les régions en développement, en donnant aux gens les outils dont ils ont besoin pour façonner leur avenir. Parce que le vrai progrès arrive lorsque tout le monde a une chance de participer.",
+    "hero__cta_title": "Rejoignez la liste d'attente",
+    "announcement__title": "Annonce",
+    "announcement__subtitle": "Nous sommes ravis de vous présenter Hekima, le premier moteur de recherche conversationnel d'Afrique. Posez vos questions dans votre propre langue et obtenez des réponses pour vous.",
+    "menu__sr_hamburger_title": "Ouvrir le menu principal",
+    "contact_us__name_field_label": "Nom",
+    "contact_us__name_field_placeholder": "Nom",
+    "contact_us__email_field_label": "Email",
+    "contact_us__email_field_placeholder": "Email",
+    "contact_us__message_field_label": "Message",
+    "contact_us__message_field_placeholder": "Message",
+    "contact_us__submit_button_title": "Envoyer",
+    "footer__contact_us": "Contactez-nous :",
+    "footer__contact_us_email": "Email : {email}",
+    "footer__contact_us_phone": "Téléphone : {phone}",
+    "footer__newsletter_subscribe_button_title": "S'abonner aux actualités",
+    "footer__rights_reserved": "© {year} Hekima. Tous droits réservés.",
+    "footer__privacy_policy_link_title": "Politique de confidentialité",
+    "products__subtitle": "Nous proposons une gamme de produits <br></br> pour aider notre communauté à se développer et à réussir grâce à l'IA",
+    "products__title": "Nos Produits",
+    "products__learn_more_button_title": "En savoir plus",
+    "testimonials__subtitle": "Découvrez ce que disent nos utilisateurs.<br></br> Lisez nos témoignages pour en savoir plus sur nos produits",
+    "testimonials__title": "Témoignages",
+    "waiting_list__cta_title": "Rejoignez la liste d'attente",
+    "waiting_list__user_position_text": "Vous êtes en position",
+    "waiting_list__text": "Rejoignez la liste d'attente avec votre WhatsApp",
+    "waiting_list__reached_target_text": "Nous avons atteint les {target} abonnés ! 🎉 <br></br> Restez à l'écoute pour le lancement",
+    "waiting_list__remaining_subscribers": "En attente de <span>{subscriptionLeftBeforeOpening}</span> personnes avant l'ouverture officielle",
+    "products__search_engine_title": "Moteur de recherche conversationnel",
+    "products__b2b_title": "Solutions B2B Exploiter nos modèles d'IA avancés",
+    "contact_us__subtitle": "Vous voulez en savoir plus ?<br></br>Contactez-nous",
+    "contact_us__title": "Contactez-nous"
+  },
+  "common": {
+    "app_name": "Hekima"
+  },
+  "app_bar": {
+    "navigation__waiting_list_item": "Liste d'attente",
+    "navigation__products_item": "Nos produits",
+    "navigation__testimonials_item": "Témoignages",
+    "navigation__contact_us_item": "Contactez-nous"
+  }
+}

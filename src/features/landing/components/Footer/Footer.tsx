@@ -11,12 +11,15 @@ import Logo from '@/components/atoms/Logo';
 import Link from 'next/link';
 import SocialMedia from './components/SocialMedia';
 import { useToast } from '@/hooks/use-toast';
-import { menuItems } from '@/features/landing/layouts/LandingLayout/utils';
+import { useMenuItems } from '@/features/landing/layouts/LandingLayout/utils';
+import { useTranslations } from 'next-intl';
 
 const FormSchema = z.object({ email: z.string().email() });
 
 const Footer = () => {
+  const t = useTranslations('landing_page');
   const { toast } = useToast();
+  const menuItems = useMenuItems();
 
   const form = useForm<z.infer<typeof FormSchema>>({ resolver: zodResolver(FormSchema), defaultValues: { email: '' } });
 
@@ -42,17 +45,17 @@ const Footer = () => {
             </Link>
           ))}
         </div>
-        <SocialMedia className="hidden md:flex" />
+        <SocialMedia className="hidden lg:flex" />
       </div>
 
       <div className="flex flex-col justify-between gap-10 sm:flex-row sm:items-center">
         <div className="flex flex-col items-start space-y-4">
-          <h4 className="text-black highlighted-text-secondary">Contact us:</h4>
+          <h4 className="text-black highlighted-text-secondary">{t('footer__contact_us')}</h4>
           <a target="_blank" href="mailto:info@hekima-ai.com">
-            Email: info@hekima-ai.com
+            {t('footer__contact_us_email', { email: 'info@hekima-ai.com' })}
           </a>
           <a target="_blank" href="https://wa.me/14245249123">
-            Phone: +1 424-524-9123
+            {t('footer__contact_us_phone', { phone: '+1 (424) 524-9123' })}
           </a>
         </div>
         <div className="h-fit px-0 py-8 md:px-14 md:py-10">
@@ -79,21 +82,21 @@ const Footer = () => {
               />
 
               <Button type="submit" size="lg" className="bg-white text-primary hover:bg-white/70">
-                Subscribe to news
+                {t('footer__newsletter_subscribe_button_title')}
               </Button>
             </form>
           </Form>
         </div>
       </div>
 
-      <SocialMedia className="mx-auto flex md:hidden" />
+      <SocialMedia className="mx-auto flex lg:hidden" />
 
       <hr className="-my-6 h-0.5" />
 
       <div className="flex gap-x-6">
-        <p>© {new Date().getFullYear()} Hekima. All Rights Reserved.</p>
+        <p>{t('footer__rights_reserved', { year: new Date().getFullYear() })}</p>
         <Link href="#" className="underline">
-          Privacy Policy
+          {t('footer__privacy_policy_link_title')}
         </Link>
       </div>
     </footer>

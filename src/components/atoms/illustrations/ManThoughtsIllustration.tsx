@@ -13,7 +13,14 @@ export const ManThoughtsIllustration = ({
   animated = false,
   className
 }: ManThoughtsIllustrationProps) => (
-  <svg viewBox="0 0 311 429" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+  <svg
+    width="100%"
+    height="100%"
+    viewBox="0 0 311 429"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
     <path
       d="M73.0183 199.833C69.3091 200.033 61.7918 198.306 62.8176 193.173C63.2095 191.214 65.2826 191.344 66.8686 191.46C72.417 191.864 77.9754 193.594 83.5071 193.911C84.2329 194.544 86.9588 194.647 86.1884 195.905C85.7115 196.684 74.5614 199.75 73.0183 199.833Z"
       fill={secondaryColor}

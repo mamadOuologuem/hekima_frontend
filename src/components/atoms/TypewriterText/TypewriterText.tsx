@@ -55,7 +55,7 @@ export const TypewriterText = ({ children: text, className, typeSpeed = 200, as 
 
   return createElement(
     as,
-    { className: cn('w-fit animate-[caret-blink_1.5s_linear_infinite] border-r-4 min-h-32', className) },
+    { className: cn('w-fit animate-[caret-blink_1.5s_linear_infinite] border-r-4', className) },
     currentText.slice(0, lastTypedCharIndex + 1)
   );
 };

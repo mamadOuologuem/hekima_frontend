@@ -1,0 +1,49 @@
+{
+  "landing_page": {
+    "title": "Hello world!",
+    "hero__title_first_half": "AI for the Many,",
+    "hero__title_second_half": "not the Few",
+    "hero__title": "AI for the Many, not the Few",
+    "hero__subtitle": "We&apos;re not just building AI; we&apos;re designing it to make a difference. Hekima creates intelligent solutions for developing regions, empowering people with the tools they need to shape their future. Because real progress happens when everyone has a chance to join in.",
+    "hero__cta_title": "Join the waiting list",
+    "announcement__title": "Announcement",
+    "announcement__subtitle": "We are thrilled to introduce you to Hekima, Africa&apos;s first conversational search engine, Ask in your own language and get answers that speak directly to you",
+    "menu__sr_hamburger_title": "Open main menu",
+    "contact_us__name_field_label": "Name",
+    "contact_us__name_field_placeholder": "Name",
+    "contact_us__email_field_label": "Email",
+    "contact_us__email_field_placeholder": "Email",
+    "contact_us__message_field_label": "Message",
+    "contact_us__message_field_placeholder": "Message",
+    "contact_us__submit_button_title": "Submit",
+    "footer__contact_us": "Contact us:",
+    "footer__contact_us_email": "Email: {email}",
+    "footer__contact_us_phone": "Phone: {phone}",
+    "footer__newsletter_subscribe_button_title": "Subscribe to news",
+    "footer__rights_reserved": "© {year} Hekima. All Rights Reserved.",
+    "footer__privacy_policy_link_title": "Privacy Policy",
+    "products__subtitle": "We offer a range of products <br></br> to help our community grow and succed with AI",
+    "products__title": "Our Products",
+    "products__learn_more_button_title": "Learn More",
+    "testimonials__subtitle": "Hear from Our Users.<br></br>Read Our Testimonials to Learn More about Our products",
+    "testimonials__title": "Testimonials",
+    "waiting_list__cta_title": "Join the waiting list",
+    "waiting_list__user_position_text": "You are in position",
+    "waiting_list__text": "Join the waiting list with your Whatsapp",
+    "waiting_list__reached_target_text": "We reached the {target} subscribers! 🎉 <br></br> Stay turned for the launch",
+    "waiting_list__remaining_subscribers": "Waiting for <span>{subscriptionLeftBeforeOpening}</span> to join before the grand opening",
+    "products__search_engine_title": "Conversational search engine",
+    "products__b2b_title": "B2B solutions Build with our advanced AI models",
+    "contact_us__subtitle": "What to know more ?<br></br>Reach out",
+    "contact_us__title": "Contact Us"
+  },
+  "common": {
+    "app_name": "Hekima"
+  },
+  "app_bar": {
+    "navigation__waiting_list_item": "Waiting list",
+    "navigation__products_item": "Our products",
+    "navigation__testimonials_item": "Testimonials",
+    "navigation__contact_us_item": "Contact Us"
+  }
+}

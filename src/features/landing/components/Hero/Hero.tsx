@@ -1,26 +1,25 @@
 import { ManThoughtsIllustration } from '@/components/atoms/illustrations';
 import { Button } from '@/components/ui/button';
 import GradualSpacing from '@/components/ui/gradual-spacing';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 export const Hero = () => {
+  const t = useTranslations('landing_page');
+
   return (
     <section className="flex flex-col items-center gap-20 md:flex-row">
       <div className="flex flex-1 flex-col gap-8">
         <h1 className="hidden sm:block">
-          <GradualSpacing>AI for the Many,</GradualSpacing>
-          <GradualSpacing>not the Few</GradualSpacing>
+          <GradualSpacing>{t('hero__title_first_half')}</GradualSpacing>
+          <GradualSpacing>{t('hero__title_second_half')}</GradualSpacing>
         </h1>
-        <h1 className="sm:hidden">AI for the Many, not the Few</h1>
-        <p className="text-xl">
-          We&apos;re not just building AI; we&apos;re designing it to make a difference. Hekima creates intelligent
-          solutions for developing regions, empowering people with the tools they need to shape their future. Because
-          real progress happens when everyone has a chance to join in.
-        </p>
+        <h1 className="sm:hidden">{t('hero__title')}</h1>
+        <p className="text-xl">{t('hero__subtitle')}</p>
 
         <Link href="/waiting-list">
           <Button size="lg" className="w-fit">
-            Join the waiting list
+            {t('hero__cta_title')}
           </Button>
         </Link>
       </div>

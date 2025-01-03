@@ -14,6 +14,7 @@ import { PhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
 import { LogoWhatsApp } from '@/components/atoms/logos';
 import { registerUserToWhatsAppWaitingList } from './action';
+import { useTranslations } from 'next-intl';
 
 const PROMPTS = ['Bonjour', 'I ni ce', 'Hello', 'Hola', '你好', 'Ciao', 'Olá', 'Hallo', 'مرحبا'];
 const WAITING_LIST_SUBSCRIPTION_TARGET = 2_000;
@@ -32,6 +33,7 @@ export const WaitingListHero = ({
   currentUserWaitingListPosition,
   totalWaitingListSubscribers
 }: WaitingListHeroProps) => {
+  const t = useTranslations();
   const [currentPromptIndex, setCurrentPromptIndex] = useState(0);
   const [isLoading, startTransition] = useTransition();
   const { toast } = useToast();
@@ -67,35 +69,38 @@ export const WaitingListHero = ({
 
   return (
     <section className="flex flex-col items-center gap-y-10 text-center">
-      <h1 className="flex flex-col items-center text-9xl">
-        <TypewriterText as="p" typeSpeed={TYPE_SPEED}>
+      <h1 className="flex flex-col items-center text-7xl sm:text-9xl">
+        <TypewriterText as="p" typeSpeed={TYPE_SPEED} className="min-h-20 sm:min-h-32">
           {PROMPTS[currentPromptIndex]}
         </TypewriterText>
-        <p>Hekima</p>
+        <p>{t('common.app_name')}</p>
       </h1>
       {currentUserWaitingListPosition ? (
         <div>
           {subscriptionLeftBeforeOpening > 0 ? (
             <span>
-              Waiting for <span className="font-bold">{subscriptionLeftBeforeOpening}</span> to join before the grand
-              opening
+              {t.rich('landing_page.waiting_list__remaining_subscribers', {
+                span: (children) => <span className="font-bold">{children}</span>,
+                subscriptionLeftBeforeOpening: subscriptionLeftBeforeOpening
+              })}
             </span>
           ) : (
             <span>
-              We reached the {WAITING_LIST_SUBSCRIPTION_TARGET} subscribers! 🎉
-              <br />
-              Stay turned for the launch
+              {t.rich('landing_page.waiting_list__reached_target_text', {
+                br: () => <br />,
+                target: WAITING_LIST_SUBSCRIPTION_TARGET
+              })}
             </span>
           )}
         </div>
       ) : (
-        <p className="text-xl">Join the waiting list with your Whatsapp</p>
+        <p className="text-xl">{t('landing_page.waiting_list__text')}</p>
       )}
 
       <div className="mt-10 w-fit">
         {currentUserWaitingListPosition ? (
           <div>
-            <p>You are in position</p>
+            <p>{t('landing_page.waiting_list__user_position_text')}</p>
             <CountUp className="text-6xl font-medium" start={1} end={currentUserWaitingListPosition} />
           </div>
         ) : (
@@ -128,7 +133,7 @@ export const WaitingListHero = ({
               />
 
               <Button type="submit" size="lg" isLoading={isLoading}>
-                Join the waiting list
+                {t('landing_page.waiting_list__cta_title')}
               </Button>
             </form>
           </Form>

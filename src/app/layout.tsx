@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
-import './globals.css';
-
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages } from 'next-intl/server';
 import { Space_Grotesk } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
+
+import './globals.css';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 
@@ -11,15 +13,18 @@ export const metadata: Metadata = {
   description: 'The AI powered knowledge base'
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={spaceGrotesk.className}>
-        {children}
+        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
         <Toaster />
       </body>
     </html>

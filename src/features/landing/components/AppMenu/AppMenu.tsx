@@ -13,6 +13,7 @@ import type { MenuItem } from '@/features/landing/types';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 interface AppMenuProps {
   menuItems: MenuItem[];
@@ -20,12 +21,13 @@ interface AppMenuProps {
 
 const AppMenu = ({ menuItems }: AppMenuProps) => {
   const pathname = usePathname();
+  const t = useTranslations('landing_page');
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button type="button" className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-          <span className="sr-only">Open main menu</span>
+          <span className="sr-only">{t('menu__sr_hamburger_title')}</span>
           <HamburgerMenuIcon aria-hidden="true" className="size-6" />
         </button>
       </DropdownMenuTrigger>

@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactNode } from 'react';
 
 import AppBar from '@/features/landing/components/AppBar';
-import { menuItems } from './utils';
+import { useMenuItems } from './utils';
 import { cn } from '@/lib/utils';
 
 interface LandingLayoutProps {
@@ -10,6 +10,8 @@ interface LandingLayoutProps {
 }
 
 const LandingLayoutRoot = ({ className, children }: LandingLayoutProps) => {
+  const menuItems = useMenuItems();
+
   return (
     <div className={cn('grid min-h-screen w-full', className)}>
       <div className="flex flex-col pb-0 pt-16">

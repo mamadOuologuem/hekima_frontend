@@ -4,41 +4,43 @@ import { StarFilledIcon, ArrowRightIcon, ArrowLeftIcon } from '@radix-ui/react-i
 import SectionTitle from '@/features/landing/components/SectionTitle';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
 const testimonials = [
   {
     author: 'John Smith',
     position: 'Marketing Director at XYZ Corp',
     testimonial:
-      'We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.'
+      '"We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."'
   },
   {
     author: 'Mary Harris',
     position: 'Owner of ABC Company',
     testimonial:
-      'Sunt cillum culpa eiusmod mollit do ipsum. Sint eu sint nostrud nostrud commodo cupidatat excepteur ipsum veniam proident duis veniam. Elit nisi ut exercitation nostrud ex qui anim cupidatat consectetur.'
+      '"Sunt cillum culpa eiusmod mollit do ipsum. Sint eu sint nostrud nostrud commodo cupidatat excepteur ipsum veniam proident duis veniam. Elit nisi ut exercitation nostrud ex qui anim cupidatat consectetur."'
   },
   {
     author: 'Sara Lee',
     position: 'Tech Lead at Wright Inc',
     testimonial:
-      'Do eu labore dolor amet sit quis consectetur laborum dolor laboris eiusmod. Ea deserunt consequat culpa esse Lorem laborum pariatur fugiat. Eu enim esse consequat fugiat nostrud excepteur veniam in. Cupidatat laboris incididunt ad tempor ea occaecat et consectetur aliquip. Tempor duis in in dolore voluptate. Exercitation sunt laboris duis amet quis et nisi consectetur consequat aliquip sit. Et quis ipsum do aliqua tempor aliquip reprehenderit irure occaecat.'
+      '"Do eu labore dolor amet sit quis consectetur laborum dolor laboris eiusmod. Ea deserunt consequat culpa esse Lorem laborum pariatur fugiat. Eu enim esse consequat fugiat nostrud excepteur veniam in. Cupidatat laboris incididunt ad tempor ea occaecat et consectetur aliquip. Tempor duis in in dolore voluptate. Exercitation sunt laboris duis amet quis et nisi consectetur consequat aliquip sit. Et quis ipsum do aliqua tempor aliquip reprehenderit irure occaecat."'
   },
   {
     author: 'Alice Johnson',
     position: 'Dr. at ABC Hospital',
     testimonial:
-      'Minim velit voluptate officia eiusmod nostrud. Aute consectetur elit nisi adipisicing fugiat laborum ipsum anim et cillum non. Proident nostrud in sit occaecat et.'
+      '"Minim velit voluptate officia eiusmod nostrud. Aute consectetur elit nisi adipisicing fugiat laborum ipsum anim et cillum non. Proident nostrud in sit occaecat et."'
   },
   {
     author: 'Jane Doe',
     position: 'CEO at ABC Inc',
     testimonial:
-      'Laborum pariatur ea commodo Lorem ut nulla eiusmod mollit tempor cillum nulla proident Lorem non. Sint commodo occaecat dolore pariatur minim. Et voluptate ullamco ipsum ut in laboris veniam in magna excepteur aute enim Lorem. Reprehenderit mollit Lorem qui anim et ut pariatur dolore dolor magna eu. Do duis amet ea ad reprehenderit enim sunt consequat velit culpa velit amet anim non. Culpa enim aliquip ex est ex qui incididunt mollit sit aute exercitation. Irure aliqua Lorem veniam duis.'
+      '"Laborum pariatur ea commodo Lorem ut nulla eiusmod mollit tempor cillum nulla proident Lorem non. Sint commodo occaecat dolore pariatur minim. Et voluptate ullamco ipsum ut in laboris veniam in magna excepteur aute enim Lorem. Reprehenderit mollit Lorem qui anim et ut pariatur dolore dolor magna eu. Do duis amet ea ad reprehenderit enim sunt consequat velit culpa velit amet anim non. Culpa enim aliquip ex est ex qui incididunt mollit sit aute exercitation. Irure aliqua Lorem veniam duis."'
   }
 ] as const;
 
 const TestimonialsSection = () => {
+  const t = useTranslations('landing_page');
   const [currentSelectedIndex, setCurrentSelectedIndex] = useState(0);
 
   const visibileIndexes = [
@@ -60,14 +62,8 @@ const TestimonialsSection = () => {
   return (
     <section className="flex flex-col gap-y-14">
       <SectionTitle
-        title="Testimonials"
-        subtitle={
-          <>
-            Hear from Our Users.
-            <br />
-            Read Our Testimonials to Learn More about Our products
-          </>
-        }
+        title={t('testimonials__title')}
+        subtitle={t.rich('testimonials__subtitle', { br: () => <br /> })}
       />
 
       <div className="flex flex-col items-center gap-y-28 overflow-hidden rounded-3xl bg-white pb-16 pt-20">
@@ -79,7 +75,7 @@ const TestimonialsSection = () => {
             >
               <div className="relative mb-10 h-60 rounded-3xl">
                 <div className="relative z-10 flex h-full rounded-3xl bg-[#E28431] p-10">
-                  <p className="my-auto line-clamp-6">&ldquo;{testimonial}&rdquo;</p>
+                  <p className="my-auto line-clamp-6">{testimonial}</p>
                 </div>
                 <div className="absolute -bottom-5 left-10 size-10 rotate-45 bg-[#E28431]"></div>
               </div>
