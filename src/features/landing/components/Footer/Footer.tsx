@@ -95,9 +95,6 @@ const Footer = () => {
 
       <div className="flex gap-x-6">
         <p>{t('footer__rights_reserved', { year: new Date().getFullYear() })}</p>
-        <Link href="#" className="underline">
-          {t('footer__privacy_policy_link_title')}
-        </Link>
       </div>
     </footer>
   );

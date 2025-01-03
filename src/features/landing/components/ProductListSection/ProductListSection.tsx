@@ -1,13 +1,14 @@
-import { ArrowTopRightIcon } from '@radix-ui/react-icons';
+import { ArrowTopRightIcon, MixIcon } from '@radix-ui/react-icons';
 import SectionTitle from '@/features/landing/components/SectionTitle';
 import Link from 'next/link';
 import { ManThoughtsIllustration2, ManThoughtsIllustration3 } from '@/components/atoms/illustrations';
 import { useTranslations } from 'next-intl';
+import { ReactNode } from 'react';
 
 export const ProductListSection = () => {
   const t = useTranslations('landing_page');
 
-  const services = [
+  const services: { title: string; href?: string; illustration: ReactNode }[] = [
     {
       title: t('products__search_engine_title'),
       href: '/waiting-list',
@@ -15,42 +16,50 @@ export const ProductListSection = () => {
     },
     {
       title: t('products__b2b_title'),
-      href: '#',
       illustration: <ManThoughtsIllustration3 />
     }
-  ] as const;
+  ];
 
   return (
     <section className="flex flex-col gap-y-14">
       <SectionTitle title={t('products__title')} subtitle={t.rich('products__subtitle', { br: () => <br /> })} />
 
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-        {services.map(({ title, href, illustration }) => (
-          <Link
-            href={href}
-            key={title}
-            className="group relative z-10 shrink-0 overflow-hidden rounded-3xl bg-secondary-lightest hover:shadow-lg"
-          >
-            <div className="absolute left-0 top-0 -z-20 size-full rounded-3xl transition duration-300 group-hover:scale-125">
-              <BackgroundIllustration className="absolute top-0 z-0 h-full" />
-            </div>
-            <div className="z-10 flex h-full gap-x-10 p-12">
-              <div className="flex flex-1 flex-col justify-between gap-6">
-                <h3 className="font-medium">{title}</h3>
+        {services.map(({ title, href, illustration }) => {
+          const Container = href ? (props: object) => <Link href={href} {...props} /> : 'div';
 
-                <div className="flex md:justify-end lg:hidden">{illustration}</div>
-
-                <div className="flex items-center gap-x-4">
-                  <div className="w-fit rounded-full bg-tertiary-dark p-2">
-                    <ArrowTopRightIcon width={25} height={25} className="stroke-white" />
-                  </div>
-                  <p className="text-xl">{t('products__learn_more_button_title')}</p>
-                </div>
+          return (
+            <Container
+              key={title}
+              className="group relative z-10 shrink-0 overflow-hidden rounded-3xl bg-secondary-lightest hover:shadow-lg"
+            >
+              <div className="absolute left-0 top-0 -z-20 size-full rounded-3xl transition duration-300 group-hover:scale-125">
+                <BackgroundIllustration className="absolute top-0 z-0 h-full" />
               </div>
-              <div className="-my-8 -mr-8 hidden flex-1 items-center justify-center lg:flex">{illustration}</div>
-            </div>
-          </Link>
-        ))}
+              <div className="z-10 flex h-full gap-x-10 p-12">
+                <div className="flex flex-1 flex-col justify-between gap-6">
+                  <h3 className="font-medium">{title}</h3>
+
+                  <div className="flex md:justify-end lg:hidden">{illustration}</div>
+
+                  <div className="flex items-center gap-x-4">
+                    <div className="flex size-10 items-center justify-center rounded-full bg-tertiary-dark p-2">
+                      {href ? (
+                        <ArrowTopRightIcon width={25} height={25} className="stroke-white" />
+                      ) : (
+                        <MixIcon width={20} height={20} className="stroke-white" />
+                      )}
+                    </div>
+                    <p className="whitespace-pre text-xl">
+                      {href ? t('products__learn_more_button_title') : t('products__coming_soon')}
+                    </p>
+                  </div>
+                </div>
+                <div className="-my-8 -mr-8 hidden flex-1 items-center justify-center lg:flex">{illustration}</div>
+              </div>
+            </Container>
+          );
+        })}
       </div>
     </section>
   );

@@ -8,34 +8,34 @@ import { useTranslations } from 'next-intl';
 
 const testimonials = [
   {
-    author: 'John Smith',
-    position: 'Marketing Director at XYZ Corp',
+    author: 'Aminata Diallo',
+    location: 'Bamako',
     testimonial:
-      '"We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."'
+      'Hekima m’a énormément aidée à gérer mes tâches quotidiennes. Je peux obtenir des réponses rapides en français, ou même en bambara. C’est comme avoir un assistant personnel disponible 24h/24 et 7j/7. Une vraie révolution pour nous ici à Bamako !'
   },
   {
-    author: 'Mary Harris',
-    position: 'Owner of ABC Company',
+    author: 'Ibrahima Coulibaly',
+    location: 'Ségou',
     testimonial:
-      '"Sunt cillum culpa eiusmod mollit do ipsum. Sint eu sint nostrud nostrud commodo cupidatat excepteur ipsum veniam proident duis veniam. Elit nisi ut exercitation nostrud ex qui anim cupidatat consectetur."'
+      'Grâce à Hekima, je peux accéder à des informations sur les opportunités d’emploi et des conseils agricoles adaptés à notre région. Cela fait une vraie différence pour ma famille et moi, surtout dans notre village de Ségou. Bravo !'
   },
   {
-    author: 'Sara Lee',
-    position: 'Tech Lead at Wright Inc',
+    author: 'Fatoumata Traoré',
+    location: 'Kayes',
     testimonial:
-      '"Do eu labore dolor amet sit quis consectetur laborum dolor laboris eiusmod. Ea deserunt consequat culpa esse Lorem laborum pariatur fugiat. Eu enim esse consequat fugiat nostrud excepteur veniam in. Cupidatat laboris incididunt ad tempor ea occaecat et consectetur aliquip. Tempor duis in in dolore voluptate. Exercitation sunt laboris duis amet quis et nisi consectetur consequat aliquip sit. Et quis ipsum do aliqua tempor aliquip reprehenderit irure occaecat."'
+      'Ce que j’aime le plus avec Hekima, c’est qu’il comprend nos besoins locaux. Que ce soit pour l’éducation de mes enfants ou des informations pratiques sur la santé, je trouve toujours des réponses fiables. Merci pour cette application, c’est vraiment utile pour les femmes comme moi.'
   },
   {
-    author: 'Alice Johnson',
-    position: 'Dr. at ABC Hospital',
+    author: 'Mamadou Diarra',
+    location: 'Sikasso',
     testimonial:
-      '"Minim velit voluptate officia eiusmod nostrud. Aute consectetur elit nisi adipisicing fugiat laborum ipsum anim et cillum non. Proident nostrud in sit occaecat et."'
+      'Hekima a rendu mes recherches d’informations rapides et efficaces. Avant, je perdais beaucoup de temps à chercher sur Internet. Maintenant, je peux poser mes questions en bambara et obtenir des réponses claires. L’interface est tellement simple à utiliser, même pour les non-initiés.'
   },
   {
-    author: 'Jane Doe',
-    position: 'CEO at ABC Inc',
+    author: 'Salif Keita',
+    location: 'Koutiala',
     testimonial:
-      '"Laborum pariatur ea commodo Lorem ut nulla eiusmod mollit tempor cillum nulla proident Lorem non. Sint commodo occaecat dolore pariatur minim. Et voluptate ullamco ipsum ut in laboris veniam in magna excepteur aute enim Lorem. Reprehenderit mollit Lorem qui anim et ut pariatur dolore dolor magna eu. Do duis amet ea ad reprehenderit enim sunt consequat velit culpa velit amet anim non. Culpa enim aliquip ex est ex qui incididunt mollit sit aute exercitation. Irure aliqua Lorem veniam duis."'
+      'Avec Hekima, je me sens connecté au monde tout en restant enraciné dans ma culture. L’intelligence artificielle au service de l’Afrique, c’est exactement ce qu’il nous faut pour avancer.'
   }
 ] as const;
 
@@ -68,7 +68,7 @@ const TestimonialsSection = () => {
 
       <div className="flex flex-col items-center gap-y-28 overflow-hidden rounded-3xl bg-white pb-16 pt-20">
         <div className="flex items-stretch justify-center gap-x-16 text-secondary-foreground">
-          {visibleTestimonials.map(({ author, position, testimonial }, index) => (
+          {visibleTestimonials.map(({ author, location, testimonial }, index) => (
             <div
               key={author}
               className={cn('hidden lg:block w-5/6 md:w-[36rem] shrink-0 space-y-3', index === 1 && 'block')}
@@ -82,7 +82,7 @@ const TestimonialsSection = () => {
 
               <div className="ml-4 flex flex-col md:ml-14">
                 <p className="font-semibold">{author}</p>
-                <p>{position}</p>
+                <p>{location}</p>
               </div>
             </div>
           ))}

@@ -21,7 +21,6 @@
     "footer__contact_us_phone": "Phone: {phone}",
     "footer__newsletter_subscribe_button_title": "Subscribe to news",
     "footer__rights_reserved": "© {year} Hekima. All Rights Reserved.",
-    "footer__privacy_policy_link_title": "Privacy Policy",
     "products__subtitle": "We offer a range of products <br></br> to help our community grow and succed with AI",
     "products__title": "Our Products",
     "products__learn_more_button_title": "Learn More",
@@ -35,7 +34,8 @@
     "products__search_engine_title": "Conversational search engine",
     "products__b2b_title": "B2B solutions Build with our advanced AI models",
     "contact_us__subtitle": "What to know more ?<br></br>Reach out",
-    "contact_us__title": "Contact Us"
+    "contact_us__title": "Contact Us",
+    "products__coming_soon": "Coming soon"
   },
   "common": {
     "app_name": "Hekima"
