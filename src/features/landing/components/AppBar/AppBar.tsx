@@ -2,22 +2,23 @@
 
 import Logo from '@/components/atoms/Logo';
 import AppMenu from '@/features/landing/components/AppMenu';
-import type { MenuItem } from '@/features/landing/types';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useMenuItems } from './utils';
 
 interface AppBarProps {
-  menuItems: MenuItem[];
+  className?: string;
 }
 
-const AppBar = ({ menuItems }: AppBarProps) => {
+const AppBar = ({ className }: AppBarProps) => {
+  const menuItems = useMenuItems();
   const pathname = usePathname();
   const t = useTranslations('common');
 
   return (
-    <header>
+    <header className={cn('text-primary', className)}>
       <nav aria-label="Global" className="flex items-center justify-between">
         <Link href="/" className="-m-1.5 p-1.5">
           <span className="sr-only">{t('app_name')}</span>
@@ -33,10 +34,7 @@ const AppBar = ({ menuItems }: AppBarProps) => {
             <Link
               key={item.name}
               href={item.href}
-              className={cn(
-                'text-sm/6 text-gray-900 hover:font-semibold',
-                item.href === pathname && 'font-bold underline'
-              )}
+              className={cn('text-sm hover:font-semibold', item.href === pathname && 'font-bold underline')}
             >
               {item.name}
             </Link>

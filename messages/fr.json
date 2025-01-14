@@ -35,7 +35,8 @@
     "products__b2b_title": "Solutions B2B Exploiter nos modèles d'IA avancés",
     "contact_us__subtitle": "Vous voulez en savoir plus ?<br></br>Contactez-nous",
     "contact_us__title": "Contactez-nous",
-    "products__coming_soon": "Bientôt disponible"
+    "products__coming_soon": "Bientôt disponible",
+    "footer__privacy_policy_link_title": "Politique de confidentialité"
   },
   "common": {
     "app_name": "Hekima"

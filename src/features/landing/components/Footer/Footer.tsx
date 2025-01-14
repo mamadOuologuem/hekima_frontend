@@ -11,8 +11,8 @@ import Logo from '@/components/atoms/Logo';
 import Link from 'next/link';
 import SocialMedia from './components/SocialMedia';
 import { useToast } from '@/hooks/use-toast';
-import { useMenuItems } from '@/features/landing/layouts/LandingLayout/utils';
 import { useTranslations } from 'next-intl';
+import { useMenuItems } from '../AppBar/utils';
 
 const FormSchema = z.object({ email: z.string().email() });
 
@@ -95,6 +95,9 @@ const Footer = () => {
 
       <div className="flex gap-x-6">
         <p>{t('footer__rights_reserved', { year: new Date().getFullYear() })}</p>
+        <Link href="/support" className="underline">
+          {t('footer__privacy_policy_link_title')}
+        </Link>
       </div>
     </footer>
   );

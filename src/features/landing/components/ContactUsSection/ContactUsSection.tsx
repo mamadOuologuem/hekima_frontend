@@ -19,7 +19,11 @@ const FormSchema = z.object({
   message: z.string().min(1)
 });
 
-const ContactUsSection = () => {
+interface ContactUsSectionProps {
+  hideTitle?: boolean;
+}
+
+const ContactUsSection = ({ hideTitle }: ContactUsSectionProps) => {
   const t = useTranslations('landing_page');
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -43,7 +47,9 @@ const ContactUsSection = () => {
 
   return (
     <section className="flex flex-col gap-y-14">
-      <SectionTitle title={t('contact_us__title')} subtitle={t.rich('contact_us__subtitle', { br: () => <br /> })} />
+      {!hideTitle && (
+        <SectionTitle title={t('contact_us__title')} subtitle={t.rich('contact_us__subtitle', { br: () => <br /> })} />
+      )}
 
       <div className="flex justify-between overflow-hidden rounded-3xl bg-secondary-light p-8 md:p-16">
         <Form {...form}>
