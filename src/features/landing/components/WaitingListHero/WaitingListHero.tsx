@@ -71,9 +71,8 @@ export const WaitingListHero = ({
     <section className="flex flex-col items-center gap-y-10 text-center">
       <h1 className="flex flex-col items-center text-7xl sm:text-9xl">
         <div className="relative">
-          {/* eslint-disable-next-line react/jsx-no-literals */}
           <p className="opacity-0" aria-hidden="true">
-            placeholder
+            {t('common.app_name')}
           </p>
           {PROMPTS.map((prompt) => (
             <p
