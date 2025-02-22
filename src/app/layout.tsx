@@ -5,6 +5,7 @@ import { Space_Grotesk } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 
 import './globals.css';
+import { TrackingContextProvider } from '@/lib/analytics';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 
@@ -24,8 +25,10 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={spaceGrotesk.className}>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
-        <Toaster />
+        <TrackingContextProvider>
+          <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+          <Toaster />
+        </TrackingContextProvider>
       </body>
     </html>
   );

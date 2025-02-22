@@ -13,10 +13,12 @@ import SocialMedia from './components/SocialMedia';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslations } from 'next-intl';
 import { useMenuItems } from '../AppBar/utils';
+import { useTrackingContext } from '@/lib/analytics';
 
 const FormSchema = z.object({ email: z.string().email() });
 
 const Footer = () => {
+  const { trackEvent, sendIdentifyEvent } = useTrackingContext();
   const t = useTranslations('landing_page');
   const { toast } = useToast();
   const menuItems = useMenuItems();
@@ -28,6 +30,8 @@ const Footer = () => {
       .then(() => {
         form.reset();
         toast({ title: 'Subscribed!', description: 'You have successfully subscribed to our newsletter' });
+        sendIdentifyEvent({ hekima_newsletter_email: data.email });
+        trackEvent('Newsletter Form Submitted', { userEmail: data.email });
       })
       .catch(() => {
         toast({ title: 'Failed to subscribe', description: 'Please try again later', variant: 'destructive' });

@@ -15,6 +15,7 @@ import { LogoWhatsApp } from '@/components/atoms/logos';
 import { registerUserToWhatsAppWaitingList } from './action';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
+import { useTrackingContext } from '@/lib/analytics';
 
 const PROMPTS = ['Salut', 'I ni ce', 'Hello', 'Hola', '你好', 'Ciao', 'Olá', 'Hallo', 'مرحبا'];
 const WAITING_LIST_SUBSCRIPTION_TARGET = 2_000;
@@ -32,6 +33,7 @@ export const WaitingListHero = ({
   currentUserWaitingListPosition,
   totalWaitingListSubscribers
 }: WaitingListHeroProps) => {
+  const { trackEvent, sendIdentifyEvent } = useTrackingContext();
   const t = useTranslations();
   const [currentPromptIndex, setCurrentPromptIndex] = useState(0);
   const [isLoading, startTransition] = useTransition();
@@ -50,6 +52,10 @@ export const WaitingListHero = ({
         .then(() => {
           form.reset();
           toast({ title: 'You have joined it!', description: 'We will notify you when we are ready' });
+          sendIdentifyEvent({ hekima_whatsapp_phone_number: data.phoneNumber });
+          trackEvent('Waiting List Form Submitted', {
+            whatsAppPhoneNumber: data.phoneNumber
+          });
         })
         .catch(() => {
           toast({ title: 'Something went wrong', description: 'Please try again later', variant: 'destructive' });

@@ -12,6 +12,7 @@ import { z } from 'zod';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslations } from 'next-intl';
+import { useTrackingContext } from '@/lib/analytics';
 
 const FormSchema = z.object({
   name: z.string().min(1),
@@ -25,6 +26,7 @@ interface ContactUsSectionProps {
 
 const ContactUsSection = ({ hideTitle }: ContactUsSectionProps) => {
   const t = useTranslations('landing_page');
+  const { trackEvent, sendIdentifyEvent } = useTrackingContext();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -39,6 +41,8 @@ const ContactUsSection = ({ hideTitle }: ContactUsSectionProps) => {
       .then(() => {
         form.reset();
         toast({ title: 'Message Sent!', description: 'We will get back to you shortly' });
+        sendIdentifyEvent({ hekima_contact_form_email: data.email });
+        trackEvent('Contact Form Submitted', { userEmail: data.email, userName: data.name, userMessage: data.message });
       })
       .catch(() => {
         toast({ title: 'Failed to send message', description: 'Please try again later', variant: 'destructive' });
