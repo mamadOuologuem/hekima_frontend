@@ -51,14 +51,21 @@ export const WaitingListHero = ({
       registerUserToWhatsAppWaitingList(data.phoneNumber)
         .then(() => {
           form.reset();
-          toast({ title: 'You have joined it!', description: 'We will notify you when we are ready' });
+          toast({
+            title: 'Vous êtes inscrit sur la liste d’attente',
+            description: 'Partagez avec vos amis pour accélérer le lancement.'
+          });
           sendIdentifyEvent({ hekima_whatsapp_phone_number: data.phoneNumber });
           trackEvent('Waiting List Form Submitted', {
             whatsAppPhoneNumber: data.phoneNumber
           });
         })
         .catch(() => {
-          toast({ title: 'Something went wrong', description: 'Please try again later', variant: 'destructive' });
+          toast({
+            title: 'Oups ! Une erreur s’est produite.',
+            description: 'Veuillez vérifier votre numéro de téléphone et réessayer.',
+            variant: 'destructive'
+          });
         })
     );
   };

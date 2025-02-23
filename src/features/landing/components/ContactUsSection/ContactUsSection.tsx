@@ -40,12 +40,16 @@ const ContactUsSection = ({ hideTitle }: ContactUsSectionProps) => {
     })
       .then(() => {
         form.reset();
-        toast({ title: 'Message Sent!', description: 'We will get back to you shortly' });
+        toast({ title: 'Message envoyé!', description: 'Nous vous répondrons bientôt' });
         sendIdentifyEvent({ hekima_contact_form_email: data.email });
         trackEvent('Contact Form Submitted', { userEmail: data.email, userName: data.name, userMessage: data.message });
       })
       .catch(() => {
-        toast({ title: 'Failed to send message', description: 'Please try again later', variant: 'destructive' });
+        toast({
+          title: 'Oups ! Une erreur s’est produite.',
+          description: 'Veuillez réessayer plus tard.',
+          variant: 'destructive'
+        });
       });
   };
 

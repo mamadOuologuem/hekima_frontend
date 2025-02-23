@@ -29,12 +29,16 @@ const Footer = () => {
     await addContactToList('NEWSLETTER', { email: data.email })
       .then(() => {
         form.reset();
-        toast({ title: 'Subscribed!', description: 'You have successfully subscribed to our newsletter' });
+        toast({ title: 'Bravo !', description: 'Vous êtes maintenant inscrit à notre newsletter.' });
         sendIdentifyEvent({ hekima_newsletter_email: data.email });
         trackEvent('Newsletter Form Submitted', { userEmail: data.email });
       })
       .catch(() => {
-        toast({ title: 'Failed to subscribe', description: 'Please try again later', variant: 'destructive' });
+        toast({
+          title: 'Oups ! Une erreur s’est produite.',
+          description: 'Veuillez réessayer plus tard.',
+          variant: 'destructive'
+        });
       });
   };
 
