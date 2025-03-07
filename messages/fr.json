@@ -36,7 +36,8 @@
     "contact_us__subtitle": "Vous voulez en savoir plus ?<br></br>Contactez-nous",
     "contact_us__title": "Contactez-nous",
     "products__coming_soon": "Bientôt disponible",
-    "footer__privacy_policy_link_title": "Politique de confidentialité"
+    "footer__privacy_policy_link_title": "Politique de confidentialité",
+    "hero__soon_available": "Bientôt disponible"
   },
   "common": {
     "app_name": "Hekima"

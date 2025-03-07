@@ -1,8 +1,7 @@
+import { DownloadOnAppStore, DownloadOnGooglePlay } from '@/components/atoms/icons';
 import { ManThoughtsIllustration } from '@/components/atoms/illustrations';
-import { Button } from '@/components/ui/button';
 import GradualSpacing from '@/components/ui/gradual-spacing';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
 
 export const Hero = () => {
   const t = useTranslations('landing_page');
@@ -17,11 +16,16 @@ export const Hero = () => {
         <h1 className="sm:hidden">{t('hero__title')}</h1>
         <p>{t('hero__subtitle')}</p>
 
-        <Link href="/waiting-list">
-          <Button size="lg" className="w-fit">
-            {t('hero__cta_title')}
-          </Button>
-        </Link>
+        <div className="flex h-14 gap-6">
+          <a href="https://apps.apple.com/us/app/hekima-ai/id6739765401" target="_blank" rel="noreferrer">
+            <DownloadOnAppStore />
+          </a>
+
+          <div className="relative flex flex-col items-center">
+            <DownloadOnGooglePlay className="opacity-85 grayscale" />
+            <span className="absolute bottom-0 translate-y-full text-sm">{t('hero__soon_available')}</span>
+          </div>
+        </div>
       </div>
 
       <div className="w-full md:w-5/12 lg:w-6/12">
