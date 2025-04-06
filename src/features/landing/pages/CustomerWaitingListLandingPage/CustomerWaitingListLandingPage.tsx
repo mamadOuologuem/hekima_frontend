@@ -1,11 +1,11 @@
 import { LandingLayout } from '@/features/landing/layouts/LandingLayout';
 import { ManThoughtsIllustrationLong } from '@/components/atoms/illustrations';
-import { WaitingListHero } from '@/features/landing/components/WaitingListHero';
+import { CustomerWaitingListHero } from '@/features/landing/components/CustomerWaitingListHero';
 import { APPLICATION_COOKIES } from '@/lib/storage';
 import { cookies } from 'next/headers';
 import { getListDetails } from '@/lib/marketing';
 
-export const WaitingListLandingPage = async () => {
+export const CustomerWaitingListLandingPage = async () => {
   const cookieStore = await cookies();
   const currentUserWaitingListPositionCookie = cookieStore.get(
     APPLICATION_COOKIES.HEKIMA_USER_POSITION_IN_WAITING_LIST
@@ -25,7 +25,7 @@ export const WaitingListLandingPage = async () => {
           className="absolute -bottom-40 -right-72 -z-10 h-full -scale-x-100 opacity-5 md:-right-60 md:opacity-100 lg:-right-40"
         />
         <div className="max-w-lg px-8 sm:px-12 md:px-20">
-          <WaitingListHero
+          <CustomerWaitingListHero
             currentUserWaitingListPosition={currentUserWaitingListPosition}
             totalWaitingListSubscribers={subscriberCount}
           />

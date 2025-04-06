@@ -1,5 +1,5 @@
-import { WaitingListLandingPage } from '@/features/landing/pages/WaitingListLandingPage';
+import { CustomerWaitingListLandingPage } from '@/features/landing/pages/CustomerWaitingListLandingPage';
 
-export default function WaitingListLandingPageIndex() {
-  return <WaitingListLandingPage />;
+export default function CustomerWaitingListLandingPageIndex() {
+  return <CustomerWaitingListLandingPage />;
 }

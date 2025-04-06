@@ -24,15 +24,15 @@ const INTERVAL_DURATION = 2_000;
 
 const FormSchema = z.object({ phoneNumber: z.string() });
 
-interface WaitingListHeroProps {
+interface CustomerWaitingListHeroProps {
   currentUserWaitingListPosition?: number;
   totalWaitingListSubscribers: number;
 }
 
-export const WaitingListHero = ({
+export const CustomerWaitingListHero = ({
   currentUserWaitingListPosition,
   totalWaitingListSubscribers
-}: WaitingListHeroProps) => {
+}: CustomerWaitingListHeroProps) => {
   const { trackEvent, sendIdentifyEvent } = useTrackingContext();
   const t = useTranslations();
   const [currentPromptIndex, setCurrentPromptIndex] = useState(0);
@@ -105,14 +105,14 @@ export const WaitingListHero = ({
         <div>
           {subscriptionLeftBeforeOpening > 0 ? (
             <span>
-              {t.rich('landing_page.waiting_list__remaining_subscribers', {
+              {t.rich('landing_page.customer_waiting_list__remaining_subscribers', {
                 span: (children) => <span className="font-bold">{children}</span>,
                 subscriptionLeftBeforeOpening: subscriptionLeftBeforeOpening
               })}
             </span>
           ) : (
             <span>
-              {t.rich('landing_page.waiting_list__reached_target_text', {
+              {t.rich('landing_page.customer_waiting_list__reached_target_text', {
                 br: () => <br />,
                 target: WAITING_LIST_SUBSCRIPTION_TARGET
               })}
@@ -120,13 +120,13 @@ export const WaitingListHero = ({
           )}
         </div>
       ) : (
-        <p className="text-xl">{t('landing_page.waiting_list__text')}</p>
+        <p className="text-xl">{t('landing_page.customer_waiting_list__text')}</p>
       )}
 
       <div className="mt-10 w-full sm:w-fit">
         {currentUserWaitingListPosition ? (
           <div>
-            <p>{t('landing_page.waiting_list__user_position_text')}</p>
+            <p>{t('landing_page.customer_waiting_list__user_position_text')}</p>
             <CountUp
               className="text-6xl font-medium"
               start={1}
@@ -164,7 +164,7 @@ export const WaitingListHero = ({
               />
 
               <Button type="submit" size="lg" isLoading={isLoading}>
-                {t('landing_page.waiting_list__cta_title')}
+                {t('landing_page.customer_waiting_list__cta_title')}
               </Button>
             </form>
           </Form>
