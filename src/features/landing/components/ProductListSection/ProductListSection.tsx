@@ -11,11 +11,12 @@ export const ProductListSection = () => {
   const services: { title: string; href?: string; illustration: ReactNode }[] = [
     {
       title: t('products__search_engine_title'),
-      href: '/waiting-list',
+      href: '/',
       illustration: <ManThoughtsIllustration2 />
     },
     {
       title: t('products__b2b_title'),
+      href: '/business-waiting-list',
       illustration: <ManThoughtsIllustration3 />
     }
   ];

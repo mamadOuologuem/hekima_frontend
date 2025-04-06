@@ -31,13 +31,21 @@
     "customer_waiting_list__text": "Rejoignez la liste d'attente avec votre WhatsApp",
     "customer_waiting_list__reached_target_text": "Nous avons atteint les {target} abonnés ! 🎉 <br></br> Restez à l'écoute pour le lancement",
     "customer_waiting_list__remaining_subscribers": "En attente de <span>{subscriptionLeftBeforeOpening}</span> personnes avant l'ouverture officielle",
+    "business_waiting_list__hero_title": "Attirez enfin les clients qui vous manquent tant!",
+    "business_waiting_list__hero_subtitle": "Rejoignez notre liste d’attente pour accéder à des clients à forte valeur sur le long terme.",
+    "business_waiting_list__cta_title": "Rejoignez la liste d'attente",
+    "business_waiting_list__email_field_label": "Email",
+    "business_waiting_list__email_field_placeholder": "Votre adresse email",
     "products__search_engine_title": "Moteur de recherche conversationnel",
     "products__b2b_title": "Solutions B2B Exploiter nos modèles d'IA avancés",
     "contact_us__subtitle": "Vous voulez en savoir plus ?<br></br>Contactez-nous",
     "contact_us__title": "Contactez-nous",
     "products__coming_soon": "Bientôt disponible",
     "footer__privacy_policy_link_title": "Politique de confidentialité",
-    "hero__soon_available": "Bientôt disponible"
+    "hero__soon_available": "Bientôt disponible",
+    "business_waiting_list__phone_field_label": "Numéro de téléphone",
+    "business_waiting_list__size_field_label": "Taille de l'entreprise",
+    "business_waiting_list__size_field_placeholder": "Selectionner le nombre d'employés"
   },
   "common": {
     "app_name": "Hekima"

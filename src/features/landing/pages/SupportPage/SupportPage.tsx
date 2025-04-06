@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-literals */
 import ContactUsSection from '@/features/landing/components/ContactUsSection';
 import Footer from '@/features/landing/components/Footer';
 import { LandingLayout } from '@/features/landing/layouts/LandingLayout';

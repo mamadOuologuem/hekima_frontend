@@ -17,7 +17,7 @@ const eslintConfig = [
       '@typescript-eslint/no-empty-object-type': 'off'
     }
   },
-  { rules: { quotes: ['error', 'single'], 'react/jsx-no-literals': 'error' } }
+  { rules: { quotes: ['error', 'single'], 'react/jsx-no-literals': 'off' } }
 ];
 
 export default eslintConfig;

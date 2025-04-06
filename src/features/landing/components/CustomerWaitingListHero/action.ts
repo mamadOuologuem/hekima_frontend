@@ -13,7 +13,6 @@ export const registerUserToWhatsAppWaitingList = async (phoneNumber: string) => 
     phone: phoneNumber,
     attributes: { WAITING_LIST_POSITION: userPosition }
   });
-  console.log(status);
 
   if (status === 'success') {
     cookieStore.set(APPLICATION_COOKIES.HEKIMA_USER_POSITION_IN_WAITING_LIST, `${userPosition}`, {

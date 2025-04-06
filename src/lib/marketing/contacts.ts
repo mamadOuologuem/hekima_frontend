@@ -9,6 +9,12 @@ contactApi.authentications['apiKey'].apiKey = process.env.BREVO_API_KEY;
 
 interface ContractAttributes {
   WAITING_LIST_POSITION: number;
+  COMPANY_NAME: string;
+  COMPANY_SIZE: string;
+  COMPANY_SECTOR_OF_ACTIVITY: string;
+  COMPANY_DIGITAL_MEDIAS: string;
+  COMPANY_WEBSITE_URL: string;
+  COMPANY_NEEDS: string;
 }
 
 export const addContactToList = async (
