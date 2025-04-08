@@ -34,6 +34,7 @@ body {
 
     /* Primary colors */
     --primary: 207 14% 16%;
+    --primary-dark: 207, 15%, 12%;
     --primary-foreground: 0 0% 98%;
 
     /* Secondary colors */

@@ -78,7 +78,7 @@ export const BusinessWaitingListForm = () => {
 
   return (
     <section className="relative flex h-full flex-col items-center justify-center">
-      <div className="my-16 w-full rounded-3xl bg-secondary-light p-8 text-primary md:my-0 md:p-16">
+      <div className="my-16 w-full rounded-3xl bg-primary bg-[url(/landing/business-waiting-list/background_pattern.png)] bg-center p-8 text-primary md:my-0 md:p-16">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
             <div className="grid grid-cols-1 gap-y-4 md:grid-cols-3 md:gap-4">
@@ -87,7 +87,7 @@ export const BusinessWaitingListForm = () => {
                 name="businessName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Nom de l&apos;entreprise</FormLabel>
+                    <FormLabel className="text-white">Nom de l&apos;entreprise</FormLabel>
                     <FormControl>
                       <Input placeholder="Votre entreprise" {...field} />
                     </FormControl>
@@ -101,7 +101,7 @@ export const BusinessWaitingListForm = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t('business_waiting_list__email_field_label')}</FormLabel>
+                    <FormLabel className="text-white">{t('business_waiting_list__email_field_label')}</FormLabel>
                     <FormControl>
                       <Input placeholder={t('business_waiting_list__email_field_placeholder')} {...field} />
                     </FormControl>
@@ -115,7 +115,7 @@ export const BusinessWaitingListForm = () => {
                 name="businessPhone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t('business_waiting_list__phone_field_label')}</FormLabel>
+                    <FormLabel className="text-white">{t('business_waiting_list__phone_field_label')}</FormLabel>
                     <FormControl>
                       <PhoneInput
                         defaultCountry="ml"
@@ -141,7 +141,7 @@ export const BusinessWaitingListForm = () => {
                 name="digitalMedias"
                 render={({ field }) => (
                   <FormItem className="col-span-2">
-                    <FormLabel>Moyens de communication</FormLabel>
+                    <FormLabel className="text-white">Moyens de communication</FormLabel>
                     <FormControl>
                       <MultiSelect
                         options={DigitalMedias.map((item) => ({ label: item, value: item }))}
@@ -159,7 +159,7 @@ export const BusinessWaitingListForm = () => {
                 name="sectorOfActivity"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Secteur d&apos;activité</FormLabel>
+                    <FormLabel className="text-white">Secteur d&apos;activité</FormLabel>
                     <FormControl>
                       <Combobox
                         className="w-full"
@@ -185,7 +185,7 @@ export const BusinessWaitingListForm = () => {
                 name="businessSize"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t('business_waiting_list__size_field_label')}</FormLabel>
+                    <FormLabel className="text-white">{t('business_waiting_list__size_field_label')}</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger>
@@ -210,7 +210,7 @@ export const BusinessWaitingListForm = () => {
                 name="websiteUrl"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Adresse du site web</FormLabel>
+                    <FormLabel className="text-white">Adresse du site web</FormLabel>
                     <FormControl>
                       <Input placeholder="Votre site internet" {...field} />
                     </FormControl>
@@ -225,7 +225,7 @@ export const BusinessWaitingListForm = () => {
               name="needs"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Votre besoin</FormLabel>
+                  <FormLabel className="text-white">Votre besoin</FormLabel>
                   <FormControl>
                     <Textarea placeholder="Quels sont vos objectifs ?" rows={6} {...field} />
                   </FormControl>
@@ -233,7 +233,7 @@ export const BusinessWaitingListForm = () => {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full" isLoading={isLoading}>
+            <Button type="submit" className="w-full" isLoading={isLoading} variant="secondary">
               {t('contact_us__submit_button_title')}
             </Button>
           </form>

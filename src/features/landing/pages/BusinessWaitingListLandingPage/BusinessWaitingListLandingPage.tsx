@@ -21,7 +21,7 @@ export const BusinessWaitingListLandingPage = async () => {
       </LandingLayout.Container>
 
       {!currentUserWaitingListPosition && (
-        <div className="relative flex bg-[url(/landing/business-waiting-list/background_pattern.png)] bg-center">
+        <div className="relative flex bg-black">
           <LandingLayout.Container className="min-h-lvh overflow-hidden">
             <div id={BUSINESS_WAITING_LIST_SECTION_IDS.FORM} />
             <BusinessWaitingListForm />

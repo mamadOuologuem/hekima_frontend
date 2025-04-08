@@ -48,13 +48,22 @@ export const BusinessWaitingListHero = ({ currentUserWaitingListPosition }: Busi
         )}
       </div>
 
-      <Image
-        src="/landing/business-waiting-list/b2b_dashboard_showcase.png"
-        alt=""
-        width={1000}
-        height={666}
-        className="rounded-xl shadow-2xl"
-      />
+      <div className="relative flex flex-1 items-end">
+        <Image
+          src="/landing/business-waiting-list/b2b_dashboard_showcase.png"
+          alt=""
+          width={1000}
+          height={666}
+          className="relative -bottom-px hidden shadow-2xl md:block"
+        />
+        <Image
+          src="/landing/business-waiting-list/b2b_dashboard_showcase_mobile.png"
+          alt=""
+          width={1000}
+          height={666}
+          className="relative -bottom-px block shadow-2xl md:hidden"
+        />
+      </div>
     </section>
   );
 };
