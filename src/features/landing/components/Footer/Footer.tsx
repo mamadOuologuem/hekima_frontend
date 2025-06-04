@@ -62,8 +62,8 @@ const Footer = () => {
           <a target="_blank" href="mailto:info@hekima-ai.com">
             {t('footer__contact_us_email', { email: 'info@hekima-ai.com' })}
           </a>
-          <a target="_blank" href="https://wa.me/14245249123">
-            {t('footer__contact_us_phone', { phone: '+1 (424) 524-9123' })}
+          <a target="_blank" href="https://wa.me/19514417577">
+            {t('footer__contact_us_phone', { phone: '+1 (951) 441-7577' })}
           </a>
         </div>
         <div className="h-fit px-0 py-8 md:px-14 md:py-10">
