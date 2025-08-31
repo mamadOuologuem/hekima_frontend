@@ -16,8 +16,8 @@ export const BusinessWaitingListLandingPage = async () => {
 
   return (
     <>
-      <LandingLayout.Container className="h-[calc(100lvh-170px)] overflow-hidden">
-        <BusinessWaitingListHero currentUserWaitingListPosition={currentUserWaitingListPosition} />
+      <LandingLayout.Container className="mt-0 h-full min-h-[calc(100lvh-92px)]">
+        <BusinessWaitingListHero />
       </LandingLayout.Container>
 
       {!currentUserWaitingListPosition && (

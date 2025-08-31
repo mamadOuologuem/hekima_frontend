@@ -4,19 +4,6 @@ export const CompanySizes = ['Entre 1 et 10', 'Entre 10 et 100', 'Entre 100 et 5
 export type CompanySize = (typeof CompanySizes)[number];
 const CompanySizeEnum = z.enum(CompanySizes, { message: 'Requis' });
 
-export const DigitalMedias = [
-  'Facebook',
-  'Instagram',
-  'Twitter',
-  'TikTok',
-  'YouTube',
-  'Snapchat',
-  'WhatsApp',
-  'LinkedIn'
-] as const;
-export type DigitalMedias = (typeof DigitalMedias)[number];
-const DigitalMediaEnum = z.enum(DigitalMedias, { message: 'Requis' });
-
 export const CommonSectorOfActivities = [
   'E-commerce',
   'Éducation',
@@ -40,7 +27,7 @@ export const BusinessWaitingListFormSchema = z.object({
   businessPhone: z.string().min(5, 'Requis'),
   businessSize: CompanySizeEnum,
   sectorOfActivity: z.string().min(1, 'Requis'),
-  digitalMedias: z.array(DigitalMediaEnum).min(1, 'Requis'),
+  pains: z.array(z.string().min(1, 'Requis')).min(1, 'Requis'),
   websiteUrl: z.string().url('Invalide'),
   businessName: z.string().min(1, 'Requis'),
   needs: z.string().min(1, 'Requis')

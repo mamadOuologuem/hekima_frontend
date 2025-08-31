@@ -54,6 +54,8 @@ interface MultiSelectProps
     value: string;
     /** Optional icon component to display alongside the option. */
     icon?: React.ComponentType<{ className?: string }>;
+    /** Optional description text to display below the option label. */
+    description?: string;
   }[];
 
   /**
@@ -274,7 +276,12 @@ export const MultiSelect = React.forwardRef<HTMLButtonElement, MultiSelectProps>
                         <CheckIcon className="h-4 w-4" />
                       </div>
                       {option.icon && <option.icon className="mr-2 h-4 w-4 text-muted-foreground" />}
-                      <span>{option.label}</span>
+                      <div className="flex flex-col">
+                        <span>{option.label}</span>
+                        {option.description && (
+                          <span className="text-sm italic text-slate-400">{option.description}</span>
+                        )}
+                      </div>
                     </CommandItem>
                   );
                 })}

@@ -21,7 +21,7 @@ export const registerBusinessToWaitingList = async (data: BusinessWaitingListFor
       COMPANY_NAME: data.businessName,
       COMPANY_SIZE: data.businessSize,
       COMPANY_SECTOR_OF_ACTIVITY: data.sectorOfActivity,
-      COMPANY_DIGITAL_MEDIAS: data.digitalMedias.join(', '),
+      COMPANY_PAINS: data.pains.join(', '),
       COMPANY_WEBSITE_URL: data.websiteUrl,
       COMPANY_NEEDS: data.needs
     }

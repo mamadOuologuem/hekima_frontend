@@ -10,7 +10,7 @@ type TrackEventParameters =
         businessName: string;
         businessSize: string;
         sectorOfActivity: string;
-        digitalMedias: string;
+        pains: string;
         websiteUrl: string;
         needs: string;
       }

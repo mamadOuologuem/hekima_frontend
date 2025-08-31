@@ -14,8 +14,7 @@ import {
   BusinessWaitingListFormSchema,
   BusinessWaitingListFormValues,
   CommonSectorOfActivities,
-  CompanySizes,
-  DigitalMedias
+  CompanySizes
 } from './schema';
 import { PhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
@@ -41,7 +40,7 @@ export const BusinessWaitingListForm = () => {
       businessPhone: '',
       businessSize: undefined,
       sectorOfActivity: '',
-      digitalMedias: [],
+      pains: [],
       websiteUrl: '',
       businessName: '',
       needs: ''
@@ -61,7 +60,7 @@ export const BusinessWaitingListForm = () => {
           sendIdentifyEvent({ hekima_business_email: data.email });
           trackEvent('Business Waiting List Form Submitted', {
             ...data,
-            digitalMedias: data.digitalMedias.join(', '),
+            pains: data.pains.join(', '),
             businessEmail: data.email
           });
           router.refresh();
@@ -138,13 +137,13 @@ export const BusinessWaitingListForm = () => {
             <div className="grid grid-cols-1 gap-y-4 md:grid-cols-3 md:gap-4">
               <FormField
                 control={form.control}
-                name="digitalMedias"
+                name="pains"
                 render={({ field }) => (
                   <FormItem className="col-span-2">
                     <FormLabel className="text-white">Moyens de communication</FormLabel>
                     <FormControl>
                       <MultiSelect
-                        options={DigitalMedias.map((item) => ({ label: item, value: item }))}
+                        options={pains}
                         onValueChange={field.onChange}
                         placeholder="Sélectionner un ou plusieurs"
                       />
@@ -244,3 +243,23 @@ export const BusinessWaitingListForm = () => {
     </section>
   );
 };
+
+const pains = [
+  { label: 'Découverte', value: 'Découverte', description: '“J’ai du mal à être visible en ligne.”' },
+  { label: 'Paiements', value: 'Paiements', description: '“Les paiements sont compliqués, surtout à la livraison.”' },
+  {
+    label: 'Gestion d’inventaire',
+    value: 'Gestion d’inventaire',
+    description: '“Je n’ai pas d’outil fiable pour gérer mes stocks.”'
+  },
+  {
+    label: 'Livraison',
+    value: 'Livraison',
+    description: '“Les livraisons sont incertaines, je ne sais jamais si ça va bien arriver.”'
+  },
+  {
+    label: 'Commandes',
+    value: 'Commandes',
+    description: '“Les commandes sur plusieurs plateformes causent souvent des retards ou des erreurs.”'
+  }
+];

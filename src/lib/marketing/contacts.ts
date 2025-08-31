@@ -12,7 +12,9 @@ interface ContractAttributes {
   COMPANY_NAME: string;
   COMPANY_SIZE: string;
   COMPANY_SECTOR_OF_ACTIVITY: string;
+  /** @deprecated */
   COMPANY_DIGITAL_MEDIAS: string;
+  COMPANY_PAINS: string;
   COMPANY_WEBSITE_URL: string;
   COMPANY_NEEDS: string;
 }
